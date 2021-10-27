@@ -23,5 +23,7 @@ namespace LibraryCatalog
         {
             return $"{Directory.GetCurrentDirectory()}\\Data\\XML\\";
         }
+
+        public static string NoBooks { get { return "There are no books in the library yet"; } }
     }
 }

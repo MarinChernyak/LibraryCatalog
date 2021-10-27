@@ -60,33 +60,36 @@ namespace LibraryCatalog
         }
         protected void InitFields(BookModel book)
         {
-            txtAuthor.Text = book.Author;
-            txtDuration.Text = book.Duration;
-            txtName.Text = book.Name;
-            txtDuration.Text = book.Duration;
-            txtDescription.Text = book.Description;
-            txtSeries.Text = book.Series;
-            txtRating.Text = book.Rating;
-            cmbFormat.SelectedItem = book.Format;
-            cmbGenre.SelectedItem = book.Genre;
-            cmbLang.SelectedItem = book.Language;
-            string filename = string.Empty;
+            if (book.Name != Constants.NoBooks)
+            {
+                txtAuthor.Text = book.Author;
+                txtDuration.Text = book.Duration;
+                txtName.Text = book.Name;
+                txtDuration.Text = book.Duration;
+                txtDescription.Text = book.Description;
+                txtSeries.Text = book.Series;
+                txtRating.Text = book.Rating;
+                cmbFormat.SelectedItem = book.Format;
+                cmbGenre.SelectedItem = book.Genre;
+                cmbLang.SelectedItem = book.Language;
+                string filename = string.Empty;
 
 #if DEBUG
-            filename = Constants.GetDebugImgPath();
+                filename = Constants.GetDebugImgPath();
 #else
             filename = Constants.GetImgPath();
 #endif
-            if (!String.IsNullOrEmpty(book.Image))
-            {
-                Image img = Image.FromFile($"{filename}{book.Image}");
-                Bitmap b = new Bitmap($"{filename}{book.Image}");
-                fillPictureBox(b);
-            }
-            else
-            {
-                pictBox.Image = null;
-                pictBox.Invalidate();
+                if (!String.IsNullOrEmpty(book.Image))
+                {
+                    Image img = Image.FromFile($"{filename}{book.Image}");
+                    Bitmap b = new Bitmap($"{filename}{book.Image}");
+                    fillPictureBox(b);
+                }
+                else
+                {
+                    pictBox.Image = null;
+                    pictBox.Invalidate();
+                }
             }
         }
         private void btnAdd_Click(object sender, EventArgs e)
@@ -95,15 +98,23 @@ namespace LibraryCatalog
             ControlsReadonly(false);
             _book = new BookModel()
             {
-                ID = Guid.NewGuid()
+                ID = Guid.NewGuid().ToString()
             };
+            ClearBookInfo();
+        }
+        protected void ClearBookInfo()
+        {
             txtAuthor.Text = string.Empty;
             txtDuration.Text = string.Empty;
             txtName.Text = string.Empty;
-            txtDuration.Text = string.Empty;
             txtSeries.Text = string.Empty;
             txtDescription.Text = string.Empty;
-
+            txtRating.Text = string.Empty;
+            if (pictBox.Image != null)
+            {
+                pictBox.Image.Dispose();
+                pictBox.Image = null;
+            }
         }
         protected void ControlsReadonly(bool IsReadOnly)
         {
@@ -202,6 +213,9 @@ namespace LibraryCatalog
 
             BooksFactory fact = new BooksFactory();
             List<BookModel> lst = fact.Data;
+            if (lst != null && lst.Count == 1 && lst[0].Name == Constants.NoBooks)
+                lst.Remove(lst[0]);
+
             lst.RemoveAll(x => x.ID == _book.ID);
             lst.Add(_book);
             fact = new BooksFactory(lst);
@@ -249,7 +263,9 @@ namespace LibraryCatalog
             BookModel book = (BookModel)lstBooks.SelectedItem;
             if (book != null)
             {
-                pictBox.Image.Dispose();
+                if(pictBox.Image!=null)
+                    pictBox.Image.Dispose();
+
                 string dir = string.Empty;
 #if DEBUG
                 dir = Constants.GetDebugImgPath();
@@ -285,7 +301,7 @@ namespace LibraryCatalog
 
         private void OnDeleteBook(object sender, EventArgs e)
         {
-            if(_book !=null)
+            if(_book !=null && _book.Name!=Constants.NoBooks)
             {
                 if (MessageBox.Show($"The selected book will be deleted permanently! Are you sure? ", "Delete Book ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
@@ -293,9 +309,10 @@ namespace LibraryCatalog
                     BooksFactory fact = new BooksFactory();
                     List<BookModel> lst = fact.Data;
                     lst.RemoveAll(x => x.ID == _book.ID);
-                    fact = new BooksFactory(lst);
-
-                    InitMainList(lst);
+                    fact.SetData(lst);
+                    fact = new BooksFactory();
+                    ClearBookInfo();
+                    InitMainList(fact.Data);
                 }
             }
         }
@@ -329,7 +346,8 @@ namespace LibraryCatalog
             lstBooks.DataSource = lst;
             lstBooks.DisplayMember = "TextField";
             lstBooks.ValueMember = "ID";
-            lstBooks.SelectedIndex = 0;
+            if(lstBooks.Items.Count>0)
+                lstBooks.SelectedIndex = 0;
         }
 
         private void OnAddGenre(object sender, EventArgs e)

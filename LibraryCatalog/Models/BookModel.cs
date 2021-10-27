@@ -8,7 +8,7 @@ namespace LibraryCatalog.Models
 {
     public class BookModel
     {
-        public Guid ID { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
         public string Author { get; set; }
         public string Series { get; set; }
@@ -20,6 +20,6 @@ namespace LibraryCatalog.Models
         public string Image { get; set; }
         public string Description { get; set; }
 
-        public string TextField => $"\"{Name}\", [{Author}]";
+        public string TextField =>Name==Constants.NoBooks? Name : $"\"{Name}\", [{Author}]";
     }
 }
