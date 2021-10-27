@@ -4,11 +4,27 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resources\Book.ico</ApplicationIcon>
+    <Win32Resource />
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Images\" />
-    <Folder Include="Data\XML\" />
+    <None Remove="Data\Images\Solaris.jpg" />
+    <None Remove="Data\Images\Ulitka.jpg" />
+    <None Remove="Data\XML\Books.xml" />
+    <None Remove="Data\XML\Formats.xml" />
+    <None Remove="Data\XML\Genres.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\Images\Solaris.jpg" />
+    <Content Include="Data\Images\Ulitka.jpg" />
+    <Content Include="Data\XML\Books.xml" />
+    <Content Include="Data\XML\Formats.xml" />
+    <Content Include="Data\XML\Genres.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
 

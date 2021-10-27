@@ -13,7 +13,13 @@ namespace LibraryCatalog.Models.Serializers
         public virtual object Data { get; set; }
         public XMLSerializerBase()
         {
-            _filename = Directory.GetCurrentDirectory().Replace("bin\\Debug\\net5.0-windows", "Data\\XML\\");
+            _filename = string.Empty;
+
+#if DEBUG
+            _filename = Constants.GetDebugXMLPath();
+#else
+            _filename = Constants.GetXMLPath();
+#endif
             UpdateFile();
             if(Data==null)
             {
@@ -22,7 +28,13 @@ namespace LibraryCatalog.Models.Serializers
         }
         public XMLSerializerBase(object data)
         {
-            _filename = Directory.GetCurrentDirectory().Replace("bin\\Debug\\net5.0-windows", "Data\\XML\\");
+            _filename = string.Empty;
+
+#if DEBUG
+            _filename = Constants.GetDebugXMLPath();
+#else
+            _filename = Constants.GetXMLPath();
+#endif            
             UpdateFile();
             Data = data;
             Save();

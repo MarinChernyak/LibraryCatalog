@@ -70,7 +70,13 @@ namespace LibraryCatalog
             cmbFormat.SelectedItem = book.Format;
             cmbGenre.SelectedItem = book.Genre;
             cmbLang.SelectedItem = book.Language;
-            string filename = Directory.GetCurrentDirectory().Replace("bin\\Debug\\net5.0-windows", "Data\\Images\\");
+            string filename = string.Empty;
+
+#if DEBUG
+            filename = Constants.GetDebugImgPath();
+#else
+            filename = Constants.GetImgPath();
+#endif
             if (!String.IsNullOrEmpty(book.Image))
             {
                 Image img = Image.FromFile($"{filename}{book.Image}");
@@ -218,7 +224,13 @@ namespace LibraryCatalog
             OpenFileDialog f = new OpenFileDialog();
             f.Title = "Select picture for title";
             f.Filter = "jpg files (*.jpg)|*.jpg|png files (*.png)|*.png|gif files (*.gif)|*.gif|tif files (*.tif)|*.tif ";
-            string PasteTo =Directory.GetCurrentDirectory().Replace("bin\\Debug\\net5.0-windows", "Data\\Images\\");
+
+            string PasteTo = string.Empty;
+#if DEBUG
+            PasteTo = Constants.GetDebugImgPath();
+#else
+            PasteTo = Constants.GetImgPath();
+#endif
             PasteTo = $"{PasteTo}{fname}";
             if (f.ShowDialog() == DialogResult.OK)
             {
@@ -238,7 +250,13 @@ namespace LibraryCatalog
             if (book != null)
             {
                 pictBox.Image.Dispose();
-                string dir = Directory.GetCurrentDirectory().Replace("bin\\Debug\\net5.0-windows", "Data\\Images\\");
+                string dir = string.Empty;
+#if DEBUG
+                dir = Constants.GetDebugImgPath();
+#else
+                dir = Constants.GetImgPath();
+#endif
+
                 string fname = $"{book.ID}.jpg";
                 List<string> files = Directory.GetFiles(dir).ToList();
 
