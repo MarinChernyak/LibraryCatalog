@@ -43,7 +43,7 @@ namespace LibraryCatalog
             this.lblAuthor = new System.Windows.Forms.Label();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSeries = new System.Windows.Forms.TextBox();
             this.lblGenre = new System.Windows.Forms.Label();
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@ namespace LibraryCatalog
             this.btnEdit = new System.Windows.Forms.Button();
             this.pictBox = new System.Windows.Forms.PictureBox();
             this.btnSelectPict = new System.Windows.Forms.Button();
+            this.btnFinishEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +119,7 @@ namespace LibraryCatalog
             this.btnDElete.TabIndex = 5;
             this.btnDElete.Text = "Delete selected";
             this.btnDElete.UseVisualStyleBackColor = true;
+            this.btnDElete.Click += new System.EventHandler(this.OnDeleteBook);
             // 
             // btnSearch
             // 
@@ -186,14 +188,14 @@ namespace LibraryCatalog
             this.label1.TabIndex = 7;
             this.label1.Text = "Series:";
             // 
-            // textBox1
+            // txtSeries
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox1.Location = new System.Drawing.Point(393, 171);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(371, 23);
-            this.textBox1.TabIndex = 8;
+            this.txtSeries.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtSeries.Location = new System.Drawing.Point(393, 171);
+            this.txtSeries.Name = "txtSeries";
+            this.txtSeries.ReadOnly = true;
+            this.txtSeries.Size = new System.Drawing.Size(371, 23);
+            this.txtSeries.TabIndex = 8;
             // 
             // lblGenre
             // 
@@ -339,6 +341,7 @@ namespace LibraryCatalog
             this.btnEdit.TabIndex = 13;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // pictBox
             // 
@@ -350,19 +353,32 @@ namespace LibraryCatalog
             // 
             // btnSelectPict
             // 
-            this.btnSelectPict.Location = new System.Drawing.Point(513, 633);
+            this.btnSelectPict.Location = new System.Drawing.Point(522, 633);
             this.btnSelectPict.Name = "btnSelectPict";
             this.btnSelectPict.Size = new System.Drawing.Size(112, 23);
             this.btnSelectPict.TabIndex = 15;
             this.btnSelectPict.Text = "Select Picture";
             this.btnSelectPict.UseVisualStyleBackColor = true;
             this.btnSelectPict.Visible = false;
+            this.btnSelectPict.Click += new System.EventHandler(this.OnSelectPicture);
+            // 
+            // btnFinishEdit
+            // 
+            this.btnFinishEdit.Location = new System.Drawing.Point(651, 633);
+            this.btnFinishEdit.Name = "btnFinishEdit";
+            this.btnFinishEdit.Size = new System.Drawing.Size(112, 23);
+            this.btnFinishEdit.TabIndex = 16;
+            this.btnFinishEdit.Text = "Finish Edit";
+            this.btnFinishEdit.UseVisualStyleBackColor = true;
+            this.btnFinishEdit.Visible = false;
+            this.btnFinishEdit.Click += new System.EventHandler(this.OnFinishEdit);
             // 
             // MainLib
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 668);
+            this.Controls.Add(this.btnFinishEdit);
             this.Controls.Add(this.btnSelectPict);
             this.Controls.Add(this.pictBox);
             this.Controls.Add(this.btnEdit);
@@ -377,7 +393,7 @@ namespace LibraryCatalog
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtRating);
             this.Controls.Add(this.txtDuration);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSeries);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblGenre);
@@ -418,7 +434,7 @@ namespace LibraryCatalog
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSeries;
         private System.Windows.Forms.Label lblGenre;
         private System.Windows.Forms.ComboBox cmbGenre;
         private System.Windows.Forms.Label label2;
@@ -436,6 +452,7 @@ namespace LibraryCatalog
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.PictureBox pictBox;
         private System.Windows.Forms.Button btnSelectPict;
+        private System.Windows.Forms.Button btnFinishEdit;
     }
 }
 

@@ -9,33 +9,46 @@ namespace LibraryCatalog.Models.Factories
 {
     public class BooksFactory : DataFactoryBase<List<BookModel>>
     {
+        public BooksFactory()
+        {
+
+        }
+        public BooksFactory(List<BookModel> model)
+            :base(model)
+        {
+
+        }
+
         protected override void ConsiderDefaultData()
         {
-            Data = new List<BookModel>();
-            Data.Add(new BookModel()
+            if (Data == null || Data.Count == 0)
             {
-                ID=Guid.NewGuid(),
-                Author= "Струггацкие A.Б. ",
-                Name = "Улитка на склоне",
-                Format="FB2",
-                Language="Русский",
-                Genre="Фантастика",
-                Rating = "10.0",
-                Image="Ulitka.jpg",
-                Description = "Книга о Кандиде, попашем в лес"
-            });
-            Data.Add(new BookModel()
-            {
-                ID = Guid.NewGuid(),
-                Author = "Лем Станислав",
-                Name = "Солярис",
-                Format = "FB2",
-                Language = "Русский",
-                Genre = "Фантастика",
-                Rating = "9.9",
-                Image="Solaris.jpg",
-                Description = "Книга о Крисе кельвине, попавшем на Солярис"
-            });
+                Data = new List<BookModel>();
+                Data.Add(new BookModel()
+                {
+                    ID = Guid.NewGuid(),
+                    Author = "Струггацкие A.Б. ",
+                    Name = "Улитка на склоне",
+                    Format = "FB2",
+                    Language = "Русский",
+                    Genre = "Фантастика",
+                    Rating = "10.0",
+                    Image = "Ulitka.jpg",
+                    Description = "Книга о Кандиде, попавшем в лес"
+                });
+                Data.Add(new BookModel()
+                {
+                    ID = Guid.NewGuid(),
+                    Author = "Лем Станислав",
+                    Name = "Солярис",
+                    Format = "FB2",
+                    Language = "Русский",
+                    Genre = "Фантастика",
+                    Rating = "9.9",
+                    Image = "Solaris.jpg",
+                    Description = "Книга о Крисе Кельвине, попавшем на Солярис"
+                });
+            }
         }
 
         protected override void CreateSerializer()
