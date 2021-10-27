@@ -238,16 +238,28 @@ namespace LibraryCatalog
             BookModel book = (BookModel)lstBooks.SelectedItem;
             if (book != null)
             {
+                pictBox.Image.Dispose();
                 string dir = Directory.GetCurrentDirectory().Replace("bin\\Debug\\net5.0-windows", "Data\\Images\\");
-                string fname = book.ID.ToString();
+                string fname = $"{book.ID}.jpg";
                 List<string> files = Directory.GetFiles(dir).ToList();
+
                 string filename = files.Where(x => x.Contains(fname)).FirstOrDefault();
                 if (!string.IsNullOrEmpty(filename))
-                {
 
-                    if (MessageBox.Show($"The current picture will be deleted permanently! Are you sure? ", "Delete File ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    
+                    try
                     {
-                        File.Delete(filename);
+                        if (MessageBox.Show($"The current picture will be deleted permanently! Are you sure? ", "Delete File ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                        {
+                            System.GC.Collect();
+                            System.GC.WaitForPendingFinalizers();
+                            File.Delete(filename);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+
                     }
                 }
             }
@@ -272,6 +284,11 @@ namespace LibraryCatalog
                     lstBooks.ValueMember = "ID";
                 }
             }
+        }
+
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

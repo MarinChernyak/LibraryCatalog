@@ -90,6 +90,7 @@ namespace LibraryCatalog
             this.btnSort.TabIndex = 2;
             this.btnSort.Text = "Sort";
             this.btnSort.UseVisualStyleBackColor = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // lstBooks
             // 
