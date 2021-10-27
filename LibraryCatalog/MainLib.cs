@@ -69,7 +69,7 @@ namespace LibraryCatalog
                 txtDescription.Text = book.Description;
                 txtSeries.Text = book.Series;
                 txtRating.Text = book.Rating;
-                cmbFormat.SelectedItem = book.Format;
+                txtListFormats.Text= book.Format;
                 cmbGenre.SelectedItem = book.Genre;
                 cmbLang.SelectedItem = book.Language;
                 string filename = string.Empty;
@@ -83,7 +83,7 @@ namespace LibraryCatalog
                 {
                     Image img = Image.FromFile($"{filename}{book.Image}");
                     Bitmap b = new Bitmap($"{filename}{book.Image}");
-                    fillPictureBox(b);
+                    FillPictureBox(b);
                 }
                 else
                 {
@@ -124,6 +124,7 @@ namespace LibraryCatalog
             txtDescription.ReadOnly = IsReadOnly;
             txtRating.ReadOnly = IsReadOnly;
             txtSeries.ReadOnly = IsReadOnly;
+            txtListFormats.ReadOnly = IsReadOnly;
 
             cmbFormat.Enabled = !IsReadOnly;
             cmbGenre.Enabled = !IsReadOnly;
@@ -133,18 +134,19 @@ namespace LibraryCatalog
             btnAddFormat.Enabled = !IsReadOnly;
             btnRemoveFormat.Enabled = !IsReadOnly;
             btnRemoveGenre.Enabled = !IsReadOnly;
-
+            btnAddFormatToList.Enabled = !IsReadOnly;
             btnSelectPict.Visible = !IsReadOnly;
             btnEdit.Visible = IsReadOnly;
             btnFinishEdit.Visible = !IsReadOnly;
 
-            Color cr = IsReadOnly ? SystemColors.ControlLightLight : SystemColors.Control;
+            Color cr = IsReadOnly ? SystemColors.ControlLight : SystemColors.Control;
             txtAuthor.BackColor = cr;
             txtDuration.BackColor = cr;
             txtName.BackColor = cr;
             txtDescription.BackColor = cr;
             txtRating.BackColor = cr;
             txtSeries.BackColor = cr;
+            txtListFormats.BackColor = cr;
             cmbFormat.BackColor = cr;
             cmbGenre.BackColor = cr;
             cmbLang.BackColor = cr;
@@ -158,34 +160,46 @@ namespace LibraryCatalog
                 InitFields((BookModel)lstBooks.SelectedItem);
             }
         }
-        public void fillPictureBox(Bitmap bmp)
+        public void FillPictureBox(Bitmap bmp)
         {
+
             pictBox.SizeMode = PictureBoxSizeMode.Normal;
-            bool source_is_wider = (float)bmp.Width / bmp.Height > (float)pictBox.Width / pictBox.Height;
+            int W = pictBox.Width;
+            int H = pictBox.Height;
+            int w = bmp.Width;
+            int h = bmp.Height;
+            double rh = h / H;
+            double rw = w / W;
+            double rate = Math.Max(rh, rw);
+            h =(int)( h / rate);
+            w = (int)(w / rate);
 
-            var resized = new Bitmap(pictBox.Width, pictBox.Height);
-            var g = Graphics.FromImage(resized);
-            var dest_rect = new Rectangle(0, 0, pictBox.Width, pictBox.Height);
-            Rectangle src_rect;
+            Bitmap resized = new Bitmap(bmp, new Size(w, h));
+            //bool source_is_wider = (float)bmp.Width / bmp.Height > (float)pictBox.Width / pictBox.Height;
 
-            if (source_is_wider)
-            {
-                float size_ratio = (float)pictBox.Height / bmp.Height;
-                int sample_width = (int)(pictBox.Width / size_ratio);
-                src_rect = new Rectangle((bmp.Width - sample_width) / 2, 0, sample_width, bmp.Height);
-            }
-            else
-            {
-                float size_ratio = (float)pictBox.Width / bmp.Width;
-                int sample_height = (int)(pictBox.Height / size_ratio);
-                src_rect = new Rectangle(0, (bmp.Height - sample_height) / 2, bmp.Width, sample_height);
-            }
+            //var resized = new Bitmap(pictBox.Width, pictBox.Height);
+            //var g = Graphics.FromImage(resized);
+            //var dest_rect = new Rectangle(0, 0, pictBox.Width, pictBox.Height);
+            //Rectangle src_rect;
 
-            g.DrawImage(bmp, dest_rect, src_rect, GraphicsUnit.Pixel);
-            g.Dispose();
+            //if (source_is_wider)
+            //{
+            //    float size_ratio = (float)pictBox.Height / bmp.Height;
+            //    int sample_width = (int)(pictBox.Width / size_ratio);
+            //    src_rect = new Rectangle((bmp.Width - sample_width) / 2, 0, sample_width, bmp.Height);
+            //}
+            //else
+            //{
+            //    float size_ratio = (float)pictBox.Width / bmp.Width;
+            //    int sample_height = (int)(pictBox.Height / size_ratio);
+            //    src_rect = new Rectangle(0, (bmp.Height - sample_height) / 2, bmp.Width, sample_height);
+            //}
+
+            //g.DrawImage(bmp, dest_rect, src_rect, GraphicsUnit.Pixel);
+            //g.Dispose();
 
             pictBox.Image = resized;
-            //pictBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictBox.SizeMode = PictureBoxSizeMode.CenterImage;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -208,7 +222,7 @@ namespace LibraryCatalog
             _book.Author = txtAuthor.Text;
             _book.Description = txtDescription.Text;
             _book.Duration = txtDuration.Text;
-            _book.Format = cmbFormat.SelectedItem.ToString();
+            _book.Format = txtListFormats.Text;
             _book.Genre = cmbGenre.SelectedItem.ToString();            
 
             BooksFactory fact = new BooksFactory();
@@ -220,16 +234,6 @@ namespace LibraryCatalog
             lst.Add(_book);
             fact = new BooksFactory(lst);
             InitBooks();
-        }
-        protected string GetPictureFilter()
-        {
-            string sfilter=string.Empty;
-            foreach(string s in Formats)
-            {
-                sfilter = $"{sfilter}|{s} files(*.{s})| *.{s} |";
-            }
-            sfilter = sfilter.Substring(1);
-            return sfilter;
         }
         private void OnSelectPicture(object sender, EventArgs e)
         {
@@ -313,14 +317,10 @@ namespace LibraryCatalog
                     fact = new BooksFactory();
                     ClearBookInfo();
                     InitMainList(fact.Data);
+                    ControlsReadonly(true);
                 }
             }
         }
-        /*
-         *            cmbSource["By Name"] = "1";
-            cmbSource["By Author"] = "2";
-            cmbSource["By Genre"] = "3";
-         */
         private void btnSort_Click(object sender, EventArgs e)
         {
             int scriterion = Convert.ToInt32(cmbSortCriterion.SelectedValue);
@@ -407,6 +407,13 @@ namespace LibraryCatalog
                 cmbFormat.DataSource = fact.Data;
 
             }
+        }
+
+        private void AddFormatToList(object sender, EventArgs e)
+        {
+            string format = cmbFormat.SelectedItem.ToString();
+            string coma = txtListFormats.Text.Length > 0 ? ", " : string.Empty;
+            txtListFormats.Text = $"{txtListFormats.Text}{coma}{format}";
         }
     }
 }

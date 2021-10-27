@@ -29,6 +29,7 @@ namespace LibraryCatalog
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainLib));
             this.lblSort = new System.Windows.Forms.Label();
             this.cmbSortCriterion = new System.Windows.Forms.ComboBox();
@@ -64,6 +65,9 @@ namespace LibraryCatalog
             this.btnFinishEdit = new System.Windows.Forms.Button();
             this.btnRemoveGenre = new System.Windows.Forms.Button();
             this.btnRemoveFormat = new System.Windows.Forms.Button();
+            this.txtListFormats = new System.Windows.Forms.TextBox();
+            this.btnAddFormatToList = new System.Windows.Forms.Button();
+            this.ttAddFormatToList = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,18 +241,18 @@ namespace LibraryCatalog
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(393, 253);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 15);
+            this.label3.Size = new System.Drawing.Size(77, 15);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Format:";
+            this.label3.Text = "Formats List:";
             // 
             // cmbFormat
             // 
             this.cmbFormat.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cmbFormat.Enabled = false;
             this.cmbFormat.FormattingEnabled = true;
-            this.cmbFormat.Location = new System.Drawing.Point(393, 271);
+            this.cmbFormat.Location = new System.Drawing.Point(633, 271);
             this.cmbFormat.Name = "cmbFormat";
-            this.cmbFormat.Size = new System.Drawing.Size(301, 23);
+            this.cmbFormat.Size = new System.Drawing.Size(61, 23);
             this.cmbFormat.TabIndex = 9;
             // 
             // label4
@@ -402,11 +406,33 @@ namespace LibraryCatalog
             this.btnRemoveFormat.UseVisualStyleBackColor = true;
             this.btnRemoveFormat.Click += new System.EventHandler(this.OnRemoveFormat);
             // 
+            // txtListFormats
+            // 
+            this.txtListFormats.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtListFormats.Location = new System.Drawing.Point(393, 271);
+            this.txtListFormats.Name = "txtListFormats";
+            this.txtListFormats.ReadOnly = true;
+            this.txtListFormats.Size = new System.Drawing.Size(195, 23);
+            this.txtListFormats.TabIndex = 17;
+            // 
+            // btnAddFormatToList
+            // 
+            this.btnAddFormatToList.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormatToList.Image")));
+            this.btnAddFormatToList.Location = new System.Drawing.Point(595, 271);
+            this.btnAddFormatToList.Name = "btnAddFormatToList";
+            this.btnAddFormatToList.Size = new System.Drawing.Size(31, 23);
+            this.btnAddFormatToList.TabIndex = 18;
+            this.ttAddFormatToList.SetToolTip(this.btnAddFormatToList, "Add a format from the right combo to the list at left");
+            this.btnAddFormatToList.UseVisualStyleBackColor = true;
+            this.btnAddFormatToList.Click += new System.EventHandler(this.AddFormatToList);
+            // 
             // MainLib
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 668);
+            this.Controls.Add(this.btnAddFormatToList);
+            this.Controls.Add(this.txtListFormats);
             this.Controls.Add(this.btnFinishEdit);
             this.Controls.Add(this.btnSelectPict);
             this.Controls.Add(this.pictBox);
@@ -486,6 +512,9 @@ namespace LibraryCatalog
         private System.Windows.Forms.Button btnFinishEdit;
         private System.Windows.Forms.Button btnRemoveGenre;
         private System.Windows.Forms.Button btnRemoveFormat;
+        private System.Windows.Forms.TextBox txtListFormats;
+        private System.Windows.Forms.Button btnAddFormatToList;
+        private System.Windows.Forms.ToolTip ttAddFormatToList;
     }
 }
 
