@@ -1,4 +1,5 @@
-﻿using LibraryCatalog.Models;
+﻿using LibraryCatalog.Dialogs;
+using LibraryCatalog.Models;
 using LibraryCatalog.Models.Factories;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace LibraryCatalog
             InitializeComponent();
             InitCombos();
             InitBooks();
+            ControlsReadonly(true);
         }
         protected void InitCombos()
         {
@@ -52,10 +54,7 @@ namespace LibraryCatalog
         protected void InitBooks()
         {
             BooksFactory fact = new BooksFactory();
-            lstBooks.DataSource = fact.Data;
-            lstBooks.DisplayMember = "TextField";
-            lstBooks.ValueMember = "ID";
-            lstBooks.SelectedIndex = 0;
+            InitMainList( fact.Data);
             InitFields((BookModel)lstBooks.SelectedItem);
 
         }
@@ -112,6 +111,11 @@ namespace LibraryCatalog
             cmbFormat.Enabled = !IsReadOnly;
             cmbGenre.Enabled = !IsReadOnly;
             cmbLang.Enabled = !IsReadOnly;
+            btnAddFormat.Enabled = !IsReadOnly;
+            btnAddGenre.Enabled = !IsReadOnly;
+            btnAddFormat.Enabled = !IsReadOnly;
+            btnRemoveFormat.Enabled = !IsReadOnly;
+            btnRemoveGenre.Enabled = !IsReadOnly;
 
             btnSelectPict.Visible = !IsReadOnly;
             btnEdit.Visible = IsReadOnly;
@@ -180,11 +184,6 @@ namespace LibraryCatalog
         }
         protected void SaveBook()
         {
-            if (lstBooks.Items.Contains(_book))
-            {
-                lstBooks.Items.Remove(_book);
-            }
-
             _book.Language = cmbLang.SelectedItem.ToString();
             _book.Name = txtName.Text;
             _book.Rating = txtRating.Text;
@@ -278,17 +277,100 @@ namespace LibraryCatalog
                     lst.RemoveAll(x => x.ID == _book.ID);
                     fact = new BooksFactory(lst);
 
-                    lstBooks.DataSource=null;
-                    lstBooks.DataSource = lst;
-                    lstBooks.DisplayMember = "TextField";
-                    lstBooks.ValueMember = "ID";
+                    InitMainList(lst);
                 }
             }
         }
-
+        /*
+         *            cmbSource["By Name"] = "1";
+            cmbSource["By Author"] = "2";
+            cmbSource["By Genre"] = "3";
+         */
         private void btnSort_Click(object sender, EventArgs e)
         {
+            int scriterion = Convert.ToInt32(cmbSortCriterion.SelectedValue);
+            BooksFactory fact = new BooksFactory();
+            List<BookModel> lst = null;
+            switch(scriterion)
+            {
+                case 1:
+                    lst = fact.Data.OrderBy(x => x.Name).ToList();
+                    break;
+                case 2:
+                    lst = fact.Data.OrderBy(x => x.Author).ToList();
+                    break;
+                case 3:
+                    lst = fact.Data.OrderBy(x => x.Genre).ToList();
+                    break;
+            };
+            InitMainList(lst);
+        }
+        protected void InitMainList(List<BookModel> lst)
+        {
+            lstBooks.DataSource = null;
+            lstBooks.DataSource = lst;
+            lstBooks.DisplayMember = "TextField";
+            lstBooks.ValueMember = "ID";
+            lstBooks.SelectedIndex = 0;
+        }
 
+        private void OnAddGenre(object sender, EventArgs e)
+        {
+            dlgSomethingNew dlg = new dlgSomethingNew();
+            dlg.SetLabels("Genre");
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string value = dlg.GetValue();
+                GenresFactory fact = new GenresFactory();
+                fact.Data.Add(value);
+                fact.SetData(fact.Data);
+                cmbGenre.DataSource = fact.Data;
+                cmbGenre.SelectedItem = value;
+
+            }
+        }
+
+        private void OnRemoveGenre(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"The selected genre will be deleted! Are you sure? ", "Delete genre ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                string value = cmbGenre.SelectedItem.ToString();
+                GenresFactory fact = new GenresFactory();
+                fact.Data.Remove(value);
+                fact.SetData(fact.Data);
+                cmbGenre.DataSource = fact.Data;
+            }
+        }
+
+        private void OnAddFormat(object sender, EventArgs e)
+        {
+            dlgSomethingNew dlg = new dlgSomethingNew();
+            dlg.SetLabels("Format");
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string value = dlg.GetValue();
+                FormatsFactory fact = new FormatsFactory();
+                fact.Data.Add(value);
+                fact.SetData(fact.Data);
+                cmbFormat.DataSource = fact.Data;
+                cmbFormat.SelectedItem = value;
+
+            }
+        }
+
+        private void OnRemoveFormat(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"The selected format will be deleted! Are you sure? ", "Delete format ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                string value = cmbFormat.SelectedItem.ToString();
+                FormatsFactory fact = new FormatsFactory();
+                fact.Data.Remove(value);
+                fact.SetData(fact.Data);
+                cmbFormat.DataSource = fact.Data;
+
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace LibraryCatalog.Models.Factories
             ConsiderDefaultData();
             
         }
-        protected void SetData(T data)
+        public void SetData(T data)
         {
             _serializer.Data = data;
             _serializer.Save();
@@ -42,5 +42,6 @@ namespace LibraryCatalog.Models.Factories
         }
         protected abstract void CreateSerializer();
         protected abstract void ConsiderDefaultData();
+
     }
 }

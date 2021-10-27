@@ -58,34 +58,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAddGenre.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAADhJREFUOE9jGLzAgcHhPwxDhUgDI80AZMXEYqhWCMCmgBCGaoUAbAoIYahW3IAk
-        xdjAqAHEAgYGAB0TZzwW8uiTAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnAddFormat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAADhJREFUOE9jGLzAgcHhPwxDhUgDI80AZMXEYqhWCMCmgBCGaoUAbAoIYahW3IAk
-        xdjAqAHEAgYGAB0TZzwW8uiTAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnRemoveGenre.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAB1JREFUOE9jGAXDBjgwOPwnB0O1DwYDRsGAAgYGAH9NPteF9Xy/AAAAAElFTkSu
-        QmCC
-</value>
-  </data>
-  <data name="btnRemoveFormat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAB1JREFUOE9jGAXDBjgwOPwnB0O1DwYDRsGAAgYGAH9NPteF9Xy/AAAAAElFTkSu
-        QmCC
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA

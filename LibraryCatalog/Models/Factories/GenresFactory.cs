@@ -9,6 +9,16 @@ namespace LibraryCatalog.Models.Factories
 {
     public class GenresFactory : DataFactoryBase<List<string>>
     {
+        public GenresFactory()
+        {
+
+        }
+        public GenresFactory(List<string> lst)
+            :base(lst)
+        {
+
+        }
+
         protected override void ConsiderDefaultData()
         {
             if (Data == null || Data.Count == 0)

@@ -54,7 +54,7 @@ namespace LibraryCatalog
             this.txtRating = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddGenre = new System.Windows.Forms.Button();
-            this.btnFormat = new System.Windows.Forms.Button();
+            this.btnAddFormat = new System.Windows.Forms.Button();
             this.cmbLang = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
@@ -62,6 +62,8 @@ namespace LibraryCatalog
             this.pictBox = new System.Windows.Forms.PictureBox();
             this.btnSelectPict = new System.Windows.Forms.Button();
             this.btnFinishEdit = new System.Windows.Forms.Button();
+            this.btnRemoveGenre = new System.Windows.Forms.Button();
+            this.btnRemoveFormat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,6 +132,7 @@ namespace LibraryCatalog
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Visible = false;
             // 
             // lblMain
             // 
@@ -215,7 +218,7 @@ namespace LibraryCatalog
             this.cmbGenre.FormattingEnabled = true;
             this.cmbGenre.Location = new System.Drawing.Point(393, 221);
             this.cmbGenre.Name = "cmbGenre";
-            this.cmbGenre.Size = new System.Drawing.Size(266, 23);
+            this.cmbGenre.Size = new System.Drawing.Size(301, 23);
             this.cmbGenre.TabIndex = 9;
             // 
             // label2
@@ -245,7 +248,7 @@ namespace LibraryCatalog
             this.cmbFormat.FormattingEnabled = true;
             this.cmbFormat.Location = new System.Drawing.Point(393, 271);
             this.cmbFormat.Name = "cmbFormat";
-            this.cmbFormat.Size = new System.Drawing.Size(266, 23);
+            this.cmbFormat.Size = new System.Drawing.Size(301, 23);
             this.cmbFormat.TabIndex = 9;
             // 
             // label4
@@ -288,21 +291,24 @@ namespace LibraryCatalog
             // 
             // btnAddGenre
             // 
-            this.btnAddGenre.Location = new System.Drawing.Point(665, 221);
+            this.btnAddGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddGenre.Image = ((System.Drawing.Image)(resources.GetObject("btnAddGenre.Image")));
+            this.btnAddGenre.Location = new System.Drawing.Point(700, 221);
             this.btnAddGenre.Name = "btnAddGenre";
-            this.btnAddGenre.Size = new System.Drawing.Size(100, 23);
+            this.btnAddGenre.Size = new System.Drawing.Size(29, 23);
             this.btnAddGenre.TabIndex = 10;
-            this.btnAddGenre.Text = "Add genre...";
             this.btnAddGenre.UseVisualStyleBackColor = true;
+            this.btnAddGenre.Click += new System.EventHandler(this.OnAddGenre);
             // 
-            // btnFormat
+            // btnAddFormat
             // 
-            this.btnFormat.Location = new System.Drawing.Point(665, 271);
-            this.btnFormat.Name = "btnFormat";
-            this.btnFormat.Size = new System.Drawing.Size(100, 23);
-            this.btnFormat.TabIndex = 10;
-            this.btnFormat.Text = "Add format...";
-            this.btnFormat.UseVisualStyleBackColor = true;
+            this.btnAddFormat.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormat.Image")));
+            this.btnAddFormat.Location = new System.Drawing.Point(700, 271);
+            this.btnAddFormat.Name = "btnAddFormat";
+            this.btnAddFormat.Size = new System.Drawing.Size(29, 23);
+            this.btnAddFormat.TabIndex = 10;
+            this.btnAddFormat.UseVisualStyleBackColor = true;
+            this.btnAddFormat.Click += new System.EventHandler(this.OnAddFormat);
             // 
             // cmbLang
             // 
@@ -374,6 +380,28 @@ namespace LibraryCatalog
             this.btnFinishEdit.Visible = false;
             this.btnFinishEdit.Click += new System.EventHandler(this.OnFinishEdit);
             // 
+            // btnRemoveGenre
+            // 
+            this.btnRemoveGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRemoveGenre.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveGenre.Image")));
+            this.btnRemoveGenre.Location = new System.Drawing.Point(735, 221);
+            this.btnRemoveGenre.Name = "btnRemoveGenre";
+            this.btnRemoveGenre.Size = new System.Drawing.Size(29, 23);
+            this.btnRemoveGenre.TabIndex = 10;
+            this.btnRemoveGenre.UseVisualStyleBackColor = true;
+            this.btnRemoveGenre.Click += new System.EventHandler(this.OnRemoveGenre);
+            // 
+            // btnRemoveFormat
+            // 
+            this.btnRemoveFormat.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRemoveFormat.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveFormat.Image")));
+            this.btnRemoveFormat.Location = new System.Drawing.Point(735, 271);
+            this.btnRemoveFormat.Name = "btnRemoveFormat";
+            this.btnRemoveFormat.Size = new System.Drawing.Size(29, 23);
+            this.btnRemoveFormat.TabIndex = 10;
+            this.btnRemoveFormat.UseVisualStyleBackColor = true;
+            this.btnRemoveFormat.Click += new System.EventHandler(this.OnRemoveFormat);
+            // 
             // MainLib
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -385,7 +413,9 @@ namespace LibraryCatalog
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.cmbLang);
-            this.Controls.Add(this.btnFormat);
+            this.Controls.Add(this.btnAddFormat);
+            this.Controls.Add(this.btnRemoveFormat);
+            this.Controls.Add(this.btnRemoveGenre);
             this.Controls.Add(this.btnAddGenre);
             this.Controls.Add(this.cmbFormat);
             this.Controls.Add(this.cmbGenre);
@@ -446,7 +476,7 @@ namespace LibraryCatalog
         private System.Windows.Forms.TextBox txtRating;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAddGenre;
-        private System.Windows.Forms.Button btnFormat;
+        private System.Windows.Forms.Button btnAddFormat;
         private System.Windows.Forms.ComboBox cmbLang;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox txtDescription;
@@ -454,6 +484,8 @@ namespace LibraryCatalog
         private System.Windows.Forms.PictureBox pictBox;
         private System.Windows.Forms.Button btnSelectPict;
         private System.Windows.Forms.Button btnFinishEdit;
+        private System.Windows.Forms.Button btnRemoveGenre;
+        private System.Windows.Forms.Button btnRemoveFormat;
     }
 }
 
