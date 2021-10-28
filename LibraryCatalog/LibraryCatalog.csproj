@@ -9,12 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\Images\unknown_pic.png" />
     <None Remove="Data\XML\Books.xml" />
     <None Remove="Data\XML\Formats.xml" />
     <None Remove="Data\XML\Genres.xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Data\Images\unknown_pic.png" />
     <Content Include="Data\XML\Books.xml" />
     <Content Include="Data\XML\Formats.xml" />
     <Content Include="Data\XML\Genres.xml" />

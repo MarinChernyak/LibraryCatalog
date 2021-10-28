@@ -19,6 +19,8 @@ namespace LibraryCatalog.Models
         public string Language { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
+        public string Size { get; set; }
+
 
         public string TextField =>Name==Constants.NoBooks? Name : $"\"{Name}\", ({Author})";
         public string TextFieldByAuthor => Name == Constants.NoBooks ? Name : $"\t{Author} -> \"{Name}\"";

@@ -71,6 +71,7 @@ namespace LibraryCatalog
                 txtSeries.Text = book.Series;
                 txtRating.Text = book.Rating;
                 txtListFormats.Text= book.Format;
+                txtSize.Text = book.Size;
                 cmbGenre.SelectedItem = book.Genre;
                 cmbLang.SelectedItem = book.Language;
                 string filename = string.Empty;
@@ -86,7 +87,8 @@ namespace LibraryCatalog
                     imgpath = $"{filename}{book.Image}";
 
                 }
-                //Image img = Image.FromFile(imgpath);
+                Image img = Image.FromFile(imgpath);
+                int w = img.Width;
                 Bitmap b = new Bitmap(imgpath);
                 FillPictureBox(b);
             }
@@ -104,6 +106,7 @@ namespace LibraryCatalog
         protected void ClearBookInfo()
         {
             txtAuthor.Text = string.Empty;
+            txtSize.Text =string.Empty;
             txtDuration.Text = string.Empty;
             txtName.Text = string.Empty;
             txtSeries.Text = string.Empty;
@@ -118,6 +121,7 @@ namespace LibraryCatalog
         protected void ControlsReadonly(bool IsReadOnly)
         {
             txtAuthor.ReadOnly = IsReadOnly;
+            txtSize.ReadOnly = IsReadOnly;
             txtDuration.ReadOnly = IsReadOnly;
             txtName.ReadOnly = IsReadOnly;
             txtDescription.ReadOnly = IsReadOnly;
@@ -140,6 +144,7 @@ namespace LibraryCatalog
 
             Color cr = IsReadOnly ? SystemColors.ControlLight : SystemColors.Control;
             txtAuthor.BackColor = cr;
+            txtSize.BackColor = cr;
             txtDuration.BackColor = cr;
             txtName.BackColor = cr;
             txtDescription.BackColor = cr;
@@ -170,33 +175,14 @@ namespace LibraryCatalog
             double rh = h / H;
             double rw = w / W;
             double rate = Math.Max(rh, rw);
-            h =(int)( h / rate);
-            w = (int)(w / rate);
+            if (rate > 0)
+            {
+                h = (int)(h / rate);
+                w = (int)(w / rate);
+            }
+            
 
             Bitmap resized = new Bitmap(bmp, new Size(w, h));
-            //bool source_is_wider = (float)bmp.Width / bmp.Height > (float)pictBox.Width / pictBox.Height;
-
-            //var resized = new Bitmap(pictBox.Width, pictBox.Height);
-            //var g = Graphics.FromImage(resized);
-            //var dest_rect = new Rectangle(0, 0, pictBox.Width, pictBox.Height);
-            //Rectangle src_rect;
-
-            //if (source_is_wider)
-            //{
-            //    float size_ratio = (float)pictBox.Height / bmp.Height;
-            //    int sample_width = (int)(pictBox.Width / size_ratio);
-            //    src_rect = new Rectangle((bmp.Width - sample_width) / 2, 0, sample_width, bmp.Height);
-            //}
-            //else
-            //{
-            //    float size_ratio = (float)pictBox.Width / bmp.Width;
-            //    int sample_height = (int)(pictBox.Height / size_ratio);
-            //    src_rect = new Rectangle(0, (bmp.Height - sample_height) / 2, bmp.Width, sample_height);
-            //}
-
-            //g.DrawImage(bmp, dest_rect, src_rect, GraphicsUnit.Pixel);
-            //g.Dispose();
-
             pictBox.Image = resized;
             pictBox.SizeMode = PictureBoxSizeMode.CenterImage;
         }
@@ -219,6 +205,7 @@ namespace LibraryCatalog
             _book.Rating = txtRating.Text;
             _book.Series = txtSeries.Text;
             _book.Author = txtAuthor.Text;
+            _book.Size = txtSize.Text;
             _book.Description = txtDescription.Text;
             _book.Duration = txtDuration.Text;
             _book.Format = txtListFormats.Text;

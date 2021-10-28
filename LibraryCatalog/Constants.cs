@@ -9,7 +9,10 @@ namespace LibraryCatalog
     {
         public static string GetDebugImgPath()
         {
-            return Directory.GetCurrentDirectory().Replace("bin\\Debug\\net5.0-windows", "Data\\Images\\");
+            //C:\Users\Public\Documents\Visual Studio 2019\Projects\LibraryCatalog\LibraryCatalog\bin\Debug\net5.0 - windows
+            string sout = Directory.GetCurrentDirectory();
+            sout = sout.Replace(@"bin\Debug\net5.0-windows", @"Data\Images\");
+            return sout;
         }
         public static string GetImgPath()
         {
@@ -17,7 +20,9 @@ namespace LibraryCatalog
         }
         public static string GetDebugXMLPath()
         {
-            return Directory.GetCurrentDirectory().Replace("bin\\Debug\\netcoreapp3.1", "Data\\XML\\");
+            string sout = Directory.GetCurrentDirectory();
+            sout = sout.Replace(@"bin\Debug\net5.0-windows", @"Data\XML\");
+            return sout;
         }
         public static string GetXMLPath()
         {
