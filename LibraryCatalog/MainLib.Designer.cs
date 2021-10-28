@@ -356,6 +356,7 @@ namespace LibraryCatalog
             // 
             // pictBox
             // 
+            this.pictBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictBox.InitialImage")));
             this.pictBox.Location = new System.Drawing.Point(13, 380);
             this.pictBox.Name = "pictBox";
             this.pictBox.Size = new System.Drawing.Size(346, 247);

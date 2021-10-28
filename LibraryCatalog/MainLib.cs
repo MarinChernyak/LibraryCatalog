@@ -32,6 +32,7 @@ namespace LibraryCatalog
             cmbSource["By Name"] = "1";
             cmbSource["By Author"] = "2";
             cmbSource["By Genre"] = "3";
+            cmbSource["By Series"] = "4";
 
             cmbSortCriterion.DataSource = new BindingSource( cmbSource, null);
             cmbSortCriterion.DisplayMember = "Key";
@@ -60,7 +61,7 @@ namespace LibraryCatalog
         }
         protected void InitFields(BookModel book)
         {
-            if (book.Name != Constants.NoBooks)
+            if (book!=null && book.Name != Constants.NoBooks)
             {
                 txtAuthor.Text = book.Author;
                 txtDuration.Text = book.Duration;
@@ -79,17 +80,15 @@ namespace LibraryCatalog
 #else
             filename = Constants.GetImgPath();
 #endif
+                string imgpath = $"{filename}unknown_pic.png";
                 if (!String.IsNullOrEmpty(book.Image))
                 {
-                    Image img = Image.FromFile($"{filename}{book.Image}");
-                    Bitmap b = new Bitmap($"{filename}{book.Image}");
-                    FillPictureBox(b);
+                    imgpath = $"{filename}{book.Image}";
+
                 }
-                else
-                {
-                    pictBox.Image = null;
-                    pictBox.Invalidate();
-                }
+                //Image img = Image.FromFile(imgpath);
+                Bitmap b = new Bitmap(imgpath);
+                FillPictureBox(b);
             }
         }
         private void btnAdd_Click(object sender, EventArgs e)
@@ -316,17 +315,17 @@ namespace LibraryCatalog
                     fact.SetData(lst);
                     fact = new BooksFactory();
                     ClearBookInfo();
-                    InitMainList(fact.Data);
+                    InitMainList(fact.Data,1);
                     ControlsReadonly(true);
                 }
             }
         }
         private void btnSort_Click(object sender, EventArgs e)
         {
-            int scriterion = Convert.ToInt32(cmbSortCriterion.SelectedValue);
+            int criterion = Convert.ToInt32(cmbSortCriterion.SelectedValue);
             BooksFactory fact = new BooksFactory();
             List<BookModel> lst = null;
-            switch(scriterion)
+            switch(criterion)
             {
                 case 1:
                     lst = fact.Data.OrderBy(x => x.Name).ToList();
@@ -337,19 +336,45 @@ namespace LibraryCatalog
                 case 3:
                     lst = fact.Data.OrderBy(x => x.Genre).ToList();
                     break;
+                case 4:
+                    lst = fact.Data.OrderBy(x => x.Series).ToList();
+                    break;
+                default:
+                    lst = fact.Data.OrderBy(x => x.Name).ToList();
+                    break;
             };
-            InitMainList(lst);
+            InitMainList(lst, criterion);
         }
-        protected void InitMainList(List<BookModel> lst)
+        protected void InitMainList(List<BookModel> lst, int criterion=1)
         {
             lstBooks.DataSource = null;
             lstBooks.DataSource = lst;
-            lstBooks.DisplayMember = "TextField";
+            if(criterion==1)
+                lstBooks.DisplayMember = "TextField";//by Name
+            else if(criterion == 2)
+                lstBooks.DisplayMember = "TextFieldByAuthor";
+            else if (criterion == 3)
+                lstBooks.DisplayMember = "TextFieldByGenre";
+            else if (criterion == 4)
+                lstBooks.DisplayMember = "TextFieldBySeries";
             lstBooks.ValueMember = "ID";
-            if(lstBooks.Items.Count>0)
+
+
+            if (lstBooks.Items.Count>0)
                 lstBooks.SelectedIndex = 0;
         }
-
+        protected string GetStringByNameGenre(BookModel bm)
+        {
+            string sout = string.Empty;
+            sout = $"{bm.Name}, {bm.Author}";
+            return sout;
+        }
+        protected string GetStringByAuthor(BookModel bm)
+        {
+            string sout = string.Empty;
+            sout = $"\t{bm.Author}, {bm.Name} ";
+            return sout;
+        }
         private void OnAddGenre(object sender, EventArgs e)
         {
             dlgSomethingNew dlg = new dlgSomethingNew();

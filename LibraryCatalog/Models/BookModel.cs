@@ -20,6 +20,10 @@ namespace LibraryCatalog.Models
         public string Image { get; set; }
         public string Description { get; set; }
 
-        public string TextField =>Name==Constants.NoBooks? Name : $"\"{Name}\", [{Author}]";
+        public string TextField =>Name==Constants.NoBooks? Name : $"\"{Name}\", ({Author})";
+        public string TextFieldByAuthor => Name == Constants.NoBooks ? Name : $"\t{Author} -> \"{Name}\"";
+        public string TextFieldBySeries => Name == Constants.NoBooks ? Name : $"{Series} ---> \"{Name}\",({Author})";
+        public string TextFieldByGenre => Name == Constants.NoBooks ? Name : $"{Genre} ---> \"{Name}\",({Author})";
+
     }
 }
