@@ -18,13 +18,14 @@ namespace LibraryCatalog
     {
         protected List<string> Formats { get; set; }
         protected BookModel _book;
-
+        protected bool IsSearch;
         public MainLib()
         {
             InitializeComponent();
             InitCombos();
             InitBooks();
             ControlsReadonly(true);
+            IsSearch = true;
         }
         protected void InitCombos()
         {
@@ -76,11 +77,11 @@ namespace LibraryCatalog
                 cmbLang.SelectedItem = book.Language;
                 string filename = string.Empty;
 
-#if DEBUG
-                filename = Constants.GetDebugImgPath();
-#else
-            filename = Constants.GetImgPath();
-#endif
+//#if DEBUG
+                //filename = Constants.GetDebugImgPath();
+//#else
+                filename = Constants.GetImgPath();
+//#endif
                 string imgpath = $"{filename}unknown_pic.png";
                 if (!String.IsNullOrEmpty(book.Image))
                 {
@@ -230,11 +231,11 @@ namespace LibraryCatalog
             f.Filter = "jpg files (*.jpg)|*.jpg|png files (*.png)|*.png|gif files (*.gif)|*.gif|tif files (*.tif)|*.tif ";
 
             string PasteTo = string.Empty;
-#if DEBUG
-            PasteTo = Constants.GetDebugImgPath();
-#else
+//#if DEBUG
+//            PasteTo = Constants.GetDebugImgPath();
+//#else
             PasteTo = Constants.GetImgPath();
-#endif
+//#endif
             PasteTo = $"{PasteTo}{fname}";
             if (f.ShowDialog() == DialogResult.OK)
             {
@@ -257,11 +258,11 @@ namespace LibraryCatalog
                     pictBox.Image.Dispose();
 
                 string dir = string.Empty;
-#if DEBUG
-                dir = Constants.GetDebugImgPath();
-#else
+//#if DEBUG
+//                dir = Constants.GetDebugImgPath();
+//#else
                 dir = Constants.GetImgPath();
-#endif
+//#endif
 
                 string fname = $"{book.ID}.jpg";
                 List<string> files = Directory.GetFiles(dir).ToList();
@@ -426,6 +427,46 @@ namespace LibraryCatalog
             string format = cmbFormat.SelectedItem.ToString();
             string coma = txtListFormats.Text.Length > 0 ? ", " : string.Empty;
             txtListFormats.Text = $"{txtListFormats.Text}{coma}{format}";
+        }
+
+        private void OnSearch(object sender, EventArgs e)
+        {
+            BooksFactory fact = new BooksFactory();
+            if (IsSearch)
+            {
+                dlgSearch dlg = new dlgSearch();
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                   
+                    List<BookModel> lstBooks = fact.Data;
+                    if (!string.IsNullOrEmpty(dlg.Author))
+                    {
+                        lstBooks = lstBooks.Where(x => x.Author.Contains(dlg.Author)).ToList();
+                    }
+                    if (!string.IsNullOrEmpty(dlg.Format) && lstBooks.Count > 0)
+                    {
+                        lstBooks = lstBooks.Where(x => x.Format.Contains(dlg.Format)).ToList();
+                    }
+                    if (!string.IsNullOrEmpty(dlg.Series) && lstBooks.Count > 0)
+                    {
+                        lstBooks = lstBooks.Where(x => x.Series.Contains(dlg.Series)).ToList();
+                    }
+                    if (!string.IsNullOrEmpty(dlg.BookName)&& lstBooks.Count > 0)
+                    {
+                        lstBooks = lstBooks.Where(x => x.Name.Contains(dlg.BookName)).ToList();
+                    }
+                    InitMainList(lstBooks);
+                    IsSearch = false;
+                    btnSearch.Text = "Return to Library";
+                }
+            }
+            else
+            {
+                IsSearch = true;
+                btnSearch.Text = "Search";
+                InitMainList(fact.Data);
+            }
         }
     }
 }

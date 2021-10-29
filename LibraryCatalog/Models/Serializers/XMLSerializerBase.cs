@@ -15,11 +15,11 @@ namespace LibraryCatalog.Models.Serializers
         {
             _filename = string.Empty;
 
-#if DEBUG
-            _filename = Constants.GetDebugXMLPath();
-#else
+//#if DEBUG
+//            _filename = Constants.GetDebugXMLPath();
+//#else
             _filename = Constants.GetXMLPath();
-#endif
+//#endif
             UpdateFile();
             if(Data==null)
             {
@@ -30,11 +30,11 @@ namespace LibraryCatalog.Models.Serializers
         {
             _filename = string.Empty;
 
-#if DEBUG
-            _filename = Constants.GetDebugXMLPath();
-#else
+//#if DEBUG
+//            _filename = Constants.GetDebugXMLPath();
+//#else
             _filename = Constants.GetXMLPath();
-#endif            
+//#endif            
             UpdateFile();
             Data = data;
             Save();
