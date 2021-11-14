@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\Images\me1.jpg" />
+    <None Remove="Data\Images\me2.jpg" />
+    <None Remove="Data\Images\me3.jpg" />
+    <None Remove="Data\Images\me4.jpg" />
+    <None Remove="Data\Images\me5.jpg" />
+    <None Remove="Data\Images\me6.jpg" />
     <None Remove="Data\Images\unknown_pic.png" />
     <None Remove="Data\XML\Books.xml" />
     <None Remove="Data\XML\Formats.xml" />
@@ -16,6 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Data\Images\me1.jpg" />
+    <Content Include="Data\Images\me2.jpg" />
+    <Content Include="Data\Images\me3.jpg" />
+    <Content Include="Data\Images\me4.jpg" />
+    <Content Include="Data\Images\me5.jpg" />
+    <Content Include="Data\Images\me6.jpg" />
     <Content Include="Data\Images\unknown_pic.png" />
     <Content Include="Data\XML\Books.xml" />
     <Content Include="Data\XML\Formats.xml" />

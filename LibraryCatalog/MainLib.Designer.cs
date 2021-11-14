@@ -71,13 +71,15 @@ namespace LibraryCatalog
             this.txtSize = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.cmbShowKind = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSort
             // 
             this.lblSort.AutoSize = true;
-            this.lblSort.Location = new System.Drawing.Point(13, 15);
+            this.lblSort.Location = new System.Drawing.Point(12, 50);
             this.lblSort.Name = "lblSort";
             this.lblSort.Size = new System.Drawing.Size(44, 15);
             this.lblSort.TabIndex = 0;
@@ -86,14 +88,14 @@ namespace LibraryCatalog
             // cmbSortCriterion
             // 
             this.cmbSortCriterion.FormattingEnabled = true;
-            this.cmbSortCriterion.Location = new System.Drawing.Point(63, 10);
+            this.cmbSortCriterion.Location = new System.Drawing.Point(77, 45);
             this.cmbSortCriterion.Name = "cmbSortCriterion";
-            this.cmbSortCriterion.Size = new System.Drawing.Size(242, 23);
+            this.cmbSortCriterion.Size = new System.Drawing.Size(227, 23);
             this.cmbSortCriterion.TabIndex = 1;
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(311, 10);
+            this.btnSort.Location = new System.Drawing.Point(310, 45);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(48, 23);
             this.btnSort.TabIndex = 2;
@@ -105,7 +107,7 @@ namespace LibraryCatalog
             // 
             this.lstBooks.FormattingEnabled = true;
             this.lstBooks.ItemHeight = 15;
-            this.lstBooks.Location = new System.Drawing.Point(13, 45);
+            this.lstBooks.Location = new System.Drawing.Point(12, 76);
             this.lstBooks.Name = "lstBooks";
             this.lstBooks.Size = new System.Drawing.Size(346, 349);
             this.lstBooks.TabIndex = 3;
@@ -113,7 +115,7 @@ namespace LibraryCatalog
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(13, 680);
+            this.btnAdd.Location = new System.Drawing.Point(13, 730);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(112, 23);
             this.btnAdd.TabIndex = 4;
@@ -123,7 +125,7 @@ namespace LibraryCatalog
             // 
             // btnDElete
             // 
-            this.btnDElete.Location = new System.Drawing.Point(130, 680);
+            this.btnDElete.Location = new System.Drawing.Point(130, 730);
             this.btnDElete.Name = "btnDElete";
             this.btnDElete.Size = new System.Drawing.Size(112, 23);
             this.btnDElete.TabIndex = 5;
@@ -133,7 +135,7 @@ namespace LibraryCatalog
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(247, 680);
+            this.btnSearch.Location = new System.Drawing.Point(247, 730);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(112, 23);
             this.btnSearch.TabIndex = 4;
@@ -145,7 +147,7 @@ namespace LibraryCatalog
             // 
             this.lblMain.AutoSize = true;
             this.lblMain.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMain.Location = new System.Drawing.Point(440, 9);
+            this.lblMain.Location = new System.Drawing.Point(440, 0);
             this.lblMain.Name = "lblMain";
             this.lblMain.Size = new System.Drawing.Size(262, 28);
             this.lblMain.TabIndex = 6;
@@ -155,7 +157,7 @@ namespace LibraryCatalog
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(393, 53);
+            this.lblName.Location = new System.Drawing.Point(393, 31);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(43, 15);
             this.lblName.TabIndex = 7;
@@ -164,7 +166,7 @@ namespace LibraryCatalog
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtName.Location = new System.Drawing.Point(393, 71);
+            this.txtName.Location = new System.Drawing.Point(393, 49);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(371, 23);
@@ -174,7 +176,7 @@ namespace LibraryCatalog
             // 
             this.lblAuthor.AutoSize = true;
             this.lblAuthor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblAuthor.Location = new System.Drawing.Point(393, 103);
+            this.lblAuthor.Location = new System.Drawing.Point(393, 81);
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(49, 15);
             this.lblAuthor.TabIndex = 7;
@@ -183,7 +185,7 @@ namespace LibraryCatalog
             // txtAuthor
             // 
             this.txtAuthor.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtAuthor.Location = new System.Drawing.Point(393, 121);
+            this.txtAuthor.Location = new System.Drawing.Point(393, 100);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.ReadOnly = true;
             this.txtAuthor.Size = new System.Drawing.Size(371, 23);
@@ -193,7 +195,7 @@ namespace LibraryCatalog
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(393, 153);
+            this.label1.Location = new System.Drawing.Point(393, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 15);
             this.label1.TabIndex = 7;
@@ -202,7 +204,7 @@ namespace LibraryCatalog
             // txtSeries
             // 
             this.txtSeries.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSeries.Location = new System.Drawing.Point(393, 171);
+            this.txtSeries.Location = new System.Drawing.Point(393, 151);
             this.txtSeries.Name = "txtSeries";
             this.txtSeries.ReadOnly = true;
             this.txtSeries.Size = new System.Drawing.Size(371, 23);
@@ -212,7 +214,7 @@ namespace LibraryCatalog
             // 
             this.lblGenre.AutoSize = true;
             this.lblGenre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblGenre.Location = new System.Drawing.Point(393, 203);
+            this.lblGenre.Location = new System.Drawing.Point(393, 183);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(45, 15);
             this.lblGenre.TabIndex = 7;
@@ -223,7 +225,7 @@ namespace LibraryCatalog
             this.cmbGenre.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cmbGenre.Enabled = false;
             this.cmbGenre.FormattingEnabled = true;
-            this.cmbGenre.Location = new System.Drawing.Point(393, 221);
+            this.cmbGenre.Location = new System.Drawing.Point(393, 202);
             this.cmbGenre.Name = "cmbGenre";
             this.cmbGenre.Size = new System.Drawing.Size(301, 23);
             this.cmbGenre.TabIndex = 9;
@@ -232,7 +234,7 @@ namespace LibraryCatalog
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(393, 400);
+            this.label2.Location = new System.Drawing.Point(392, 383);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 15);
             this.label2.TabIndex = 7;
@@ -242,7 +244,7 @@ namespace LibraryCatalog
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(393, 253);
+            this.label3.Location = new System.Drawing.Point(393, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 15);
             this.label3.TabIndex = 7;
@@ -253,7 +255,7 @@ namespace LibraryCatalog
             this.cmbFormat.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cmbFormat.Enabled = false;
             this.cmbFormat.FormattingEnabled = true;
-            this.cmbFormat.Location = new System.Drawing.Point(633, 271);
+            this.cmbFormat.Location = new System.Drawing.Point(633, 253);
             this.cmbFormat.Name = "cmbFormat";
             this.cmbFormat.Size = new System.Drawing.Size(61, 23);
             this.cmbFormat.TabIndex = 9;
@@ -262,7 +264,7 @@ namespace LibraryCatalog
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(393, 303);
+            this.label4.Location = new System.Drawing.Point(393, 285);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 7;
@@ -271,7 +273,7 @@ namespace LibraryCatalog
             // txtDuration
             // 
             this.txtDuration.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDuration.Location = new System.Drawing.Point(393, 321);
+            this.txtDuration.Location = new System.Drawing.Point(393, 304);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.ReadOnly = true;
             this.txtDuration.Size = new System.Drawing.Size(101, 23);
@@ -280,7 +282,7 @@ namespace LibraryCatalog
             // txtRating
             // 
             this.txtRating.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtRating.Location = new System.Drawing.Point(663, 321);
+            this.txtRating.Location = new System.Drawing.Point(663, 304);
             this.txtRating.Name = "txtRating";
             this.txtRating.ReadOnly = true;
             this.txtRating.Size = new System.Drawing.Size(101, 23);
@@ -290,7 +292,7 @@ namespace LibraryCatalog
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(663, 303);
+            this.label5.Location = new System.Drawing.Point(663, 285);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 15);
             this.label5.TabIndex = 7;
@@ -300,7 +302,7 @@ namespace LibraryCatalog
             // 
             this.btnAddGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddGenre.Image = ((System.Drawing.Image)(resources.GetObject("btnAddGenre.Image")));
-            this.btnAddGenre.Location = new System.Drawing.Point(700, 221);
+            this.btnAddGenre.Location = new System.Drawing.Point(700, 202);
             this.btnAddGenre.Name = "btnAddGenre";
             this.btnAddGenre.Size = new System.Drawing.Size(29, 23);
             this.btnAddGenre.TabIndex = 10;
@@ -310,7 +312,7 @@ namespace LibraryCatalog
             // btnAddFormat
             // 
             this.btnAddFormat.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormat.Image")));
-            this.btnAddFormat.Location = new System.Drawing.Point(700, 271);
+            this.btnAddFormat.Location = new System.Drawing.Point(700, 253);
             this.btnAddFormat.Name = "btnAddFormat";
             this.btnAddFormat.Size = new System.Drawing.Size(29, 23);
             this.btnAddFormat.TabIndex = 10;
@@ -322,7 +324,7 @@ namespace LibraryCatalog
             this.cmbLang.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cmbLang.Enabled = false;
             this.cmbLang.FormattingEnabled = true;
-            this.cmbLang.Location = new System.Drawing.Point(393, 371);
+            this.cmbLang.Location = new System.Drawing.Point(393, 355);
             this.cmbLang.Name = "cmbLang";
             this.cmbLang.Size = new System.Drawing.Size(233, 23);
             this.cmbLang.TabIndex = 11;
@@ -331,7 +333,7 @@ namespace LibraryCatalog
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(393, 353);
+            this.label6.Location = new System.Drawing.Point(393, 336);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 15);
             this.label6.TabIndex = 7;
@@ -340,16 +342,16 @@ namespace LibraryCatalog
             // txtDescription
             // 
             this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDescription.Location = new System.Drawing.Point(393, 418);
+            this.txtDescription.Location = new System.Drawing.Point(392, 406);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(371, 256);
+            this.txtDescription.Size = new System.Drawing.Size(371, 306);
             this.txtDescription.TabIndex = 12;
             this.txtDescription.Text = "";
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(393, 680);
+            this.btnEdit.Location = new System.Drawing.Point(393, 730);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(112, 23);
             this.btnEdit.TabIndex = 13;
@@ -360,7 +362,7 @@ namespace LibraryCatalog
             // pictBox
             // 
             this.pictBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictBox.InitialImage")));
-            this.pictBox.Location = new System.Drawing.Point(13, 418);
+            this.pictBox.Location = new System.Drawing.Point(13, 457);
             this.pictBox.Name = "pictBox";
             this.pictBox.Size = new System.Drawing.Size(346, 256);
             this.pictBox.TabIndex = 14;
@@ -368,7 +370,7 @@ namespace LibraryCatalog
             // 
             // btnSelectPict
             // 
-            this.btnSelectPict.Location = new System.Drawing.Point(522, 680);
+            this.btnSelectPict.Location = new System.Drawing.Point(522, 730);
             this.btnSelectPict.Name = "btnSelectPict";
             this.btnSelectPict.Size = new System.Drawing.Size(112, 23);
             this.btnSelectPict.TabIndex = 15;
@@ -379,7 +381,7 @@ namespace LibraryCatalog
             // 
             // btnFinishEdit
             // 
-            this.btnFinishEdit.Location = new System.Drawing.Point(651, 680);
+            this.btnFinishEdit.Location = new System.Drawing.Point(651, 730);
             this.btnFinishEdit.Name = "btnFinishEdit";
             this.btnFinishEdit.Size = new System.Drawing.Size(112, 23);
             this.btnFinishEdit.TabIndex = 16;
@@ -392,7 +394,7 @@ namespace LibraryCatalog
             // 
             this.btnRemoveGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRemoveGenre.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveGenre.Image")));
-            this.btnRemoveGenre.Location = new System.Drawing.Point(735, 221);
+            this.btnRemoveGenre.Location = new System.Drawing.Point(735, 202);
             this.btnRemoveGenre.Name = "btnRemoveGenre";
             this.btnRemoveGenre.Size = new System.Drawing.Size(29, 23);
             this.btnRemoveGenre.TabIndex = 10;
@@ -403,7 +405,7 @@ namespace LibraryCatalog
             // 
             this.btnRemoveFormat.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRemoveFormat.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveFormat.Image")));
-            this.btnRemoveFormat.Location = new System.Drawing.Point(735, 271);
+            this.btnRemoveFormat.Location = new System.Drawing.Point(735, 253);
             this.btnRemoveFormat.Name = "btnRemoveFormat";
             this.btnRemoveFormat.Size = new System.Drawing.Size(29, 23);
             this.btnRemoveFormat.TabIndex = 10;
@@ -413,7 +415,7 @@ namespace LibraryCatalog
             // txtListFormats
             // 
             this.txtListFormats.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtListFormats.Location = new System.Drawing.Point(393, 271);
+            this.txtListFormats.Location = new System.Drawing.Point(393, 253);
             this.txtListFormats.Name = "txtListFormats";
             this.txtListFormats.ReadOnly = true;
             this.txtListFormats.Size = new System.Drawing.Size(195, 23);
@@ -422,7 +424,7 @@ namespace LibraryCatalog
             // btnAddFormatToList
             // 
             this.btnAddFormatToList.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormatToList.Image")));
-            this.btnAddFormatToList.Location = new System.Drawing.Point(595, 271);
+            this.btnAddFormatToList.Location = new System.Drawing.Point(595, 253);
             this.btnAddFormatToList.Name = "btnAddFormatToList";
             this.btnAddFormatToList.Size = new System.Drawing.Size(31, 23);
             this.btnAddFormatToList.TabIndex = 18;
@@ -433,7 +435,7 @@ namespace LibraryCatalog
             // txtSize
             // 
             this.txtSize.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSize.Location = new System.Drawing.Point(528, 321);
+            this.txtSize.Location = new System.Drawing.Point(528, 304);
             this.txtSize.Name = "txtSize";
             this.txtSize.ReadOnly = true;
             this.txtSize.Size = new System.Drawing.Size(101, 23);
@@ -443,7 +445,7 @@ namespace LibraryCatalog
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(528, 303);
+            this.label7.Location = new System.Drawing.Point(528, 285);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 15);
             this.label7.TabIndex = 7;
@@ -453,17 +455,37 @@ namespace LibraryCatalog
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(13, 400);
+            this.label8.Location = new System.Drawing.Point(13, 439);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 15);
             this.label8.TabIndex = 7;
             this.label8.Text = "Book Cover:";
             // 
+            // cmbShowKind
+            // 
+            this.cmbShowKind.FormattingEnabled = true;
+            this.cmbShowKind.Location = new System.Drawing.Point(77, 14);
+            this.cmbShowKind.Name = "cmbShowKind";
+            this.cmbShowKind.Size = new System.Drawing.Size(227, 23);
+            this.cmbShowKind.TabIndex = 22;
+            this.cmbShowKind.SelectedIndexChanged += new System.EventHandler(this.OnShowKindChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 15);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Show just";
+            // 
             // MainLib
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 709);
+            this.ClientSize = new System.Drawing.Size(800, 761);
+            this.Controls.Add(this.cmbShowKind);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnAddFormatToList);
             this.Controls.Add(this.txtListFormats);
             this.Controls.Add(this.btnFinishEdit);
@@ -554,6 +576,8 @@ namespace LibraryCatalog
         private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbShowKind;
+        private System.Windows.Forms.Label label9;
     }
 }
 

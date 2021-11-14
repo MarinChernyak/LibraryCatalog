@@ -16,7 +16,7 @@ namespace LibraryCatalog
         //}
         public static string GetImgPath()
         {
-            return @"C:\CatalogLib\Images\";
+            return @"C:\LibraryCatalog\Images\";
         }
         //public static string GetDebugXMLPath()
         //{
@@ -26,9 +26,14 @@ namespace LibraryCatalog
         //}
         public static string GetXMLPath()
         {
-            return @"C:\CatalogLib\XML\";
+            return @"C:\LibraryCatalog\XML\";
         }
-
+        public static string GetAppImgPath()
+        {
+            string sout = Directory.GetCurrentDirectory();
+            sout = sout.Replace(@"bin\Debug\net5.0-windows", @"Data\Images\");
+            return sout;
+        }
         public static string NoBooks { get { return "There are no books in the library yet"; } }
     }
 }

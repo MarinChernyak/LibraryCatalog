@@ -34,11 +34,20 @@ namespace LibraryCatalog
             cmbSource["By Author"] = "2";
             cmbSource["By Genre"] = "3";
             cmbSource["By Series"] = "4";
-
             cmbSortCriterion.DataSource = new BindingSource( cmbSource, null);
             cmbSortCriterion.DisplayMember = "Key";
             cmbSortCriterion.ValueMember = "Value";
-
+            cmbSortCriterion.SelectedIndex = 0;
+            //----------------------------------
+            Dictionary<string, string> cmbSourceShow = new Dictionary<string, string>();
+            cmbSourceShow["Show all"] = "0";
+            cmbSourceShow["Text books"] = "1";
+            cmbSourceShow["Audio books"] = "2";
+            cmbShowKind.DataSource = new BindingSource(cmbSourceShow, null);
+            cmbShowKind.DisplayMember = "Key";
+            cmbShowKind.ValueMember = "Value";
+          
+            //------------------------------------------------------------------
             cmbSource = new Dictionary<string, string>();
             cmbSource["English"] = "1";
             cmbSource["Русский"] = "2";
@@ -52,13 +61,15 @@ namespace LibraryCatalog
 
             GenresFactory fg = new GenresFactory();
             cmbGenre.DataSource = fg.Data;
+
+            
         }
         protected void InitBooks()
         {
-            BooksFactory fact = new BooksFactory();
-            InitMainList( fact.Data);
+            List<BookModel> lst = ShowKindFactoryCall();
+            InitMainList( lst);
             InitFields((BookModel)lstBooks.SelectedItem);
-
+            
         }
         protected void InitFields(BookModel book)
         {
@@ -91,7 +102,7 @@ namespace LibraryCatalog
                 Image img = Image.FromFile(imgpath);
                 int w = img.Width;
                 Bitmap b = new Bitmap(imgpath);
-                FillPictureBox(b);
+                Utilities.FillPictureBox(pictBox, b);
             }
         }
         private void btnAdd_Click(object sender, EventArgs e)
@@ -165,28 +176,28 @@ namespace LibraryCatalog
                 InitFields((BookModel)lstBooks.SelectedItem);
             }
         }
-        public void FillPictureBox(Bitmap bmp)
-        {
+        //public void FillPictureBox(Bitmap bmp)
+        //{
 
-            pictBox.SizeMode = PictureBoxSizeMode.Normal;
-            int W = pictBox.Width;
-            int H = pictBox.Height;
-            int w = bmp.Width;
-            int h = bmp.Height;
-            double rh = h / H;
-            double rw = w / W;
-            double rate = Math.Max(rh, rw);
-            if (rate > 0)
-            {
-                h = (int)(h / rate);
-                w = (int)(w / rate);
-            }
+        //    pictBox.SizeMode = PictureBoxSizeMode.Normal;
+        //    double W = pictBox.Width;
+        //    double H = pictBox.Height;
+        //    double w = bmp.Width;
+        //    double h = bmp.Height;
+        //    double rh = h / H;
+        //    double rw = w / W;
+        //    double rate = Math.Max(rh, rw);
+        //    if (rate > 0)
+        //    {
+        //        h = h / rate;
+        //        w = w / rate;
+        //    }
             
 
-            Bitmap resized = new Bitmap(bmp, new Size(w, h));
-            pictBox.Image = resized;
-            pictBox.SizeMode = PictureBoxSizeMode.CenterImage;
-        }
+        //    Bitmap resized = new Bitmap(bmp, new Size((int)w, (int)h));
+        //    pictBox.Image = resized;
+        //    pictBox.SizeMode = PictureBoxSizeMode.CenterImage;
+        //}
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -311,24 +322,23 @@ namespace LibraryCatalog
         private void btnSort_Click(object sender, EventArgs e)
         {
             int criterion = Convert.ToInt32(cmbSortCriterion.SelectedValue);
-            BooksFactory fact = new BooksFactory();
-            List<BookModel> lst = null;
+            List<BookModel> lst = ShowKindFactoryCall();
             switch(criterion)
             {
                 case 1:
-                    lst = fact.Data.OrderBy(x => x.Name).ToList();
+                    lst = lst.OrderBy(x => x.Name).ToList();
                     break;
                 case 2:
-                    lst = fact.Data.OrderBy(x => x.Author).ToList();
+                    lst = lst.OrderBy(x => x.Author).ToList();
                     break;
                 case 3:
-                    lst = fact.Data.OrderBy(x => x.Genre).ToList();
+                    lst = lst.OrderBy(x => x.Genre).ToList();
                     break;
                 case 4:
-                    lst = fact.Data.OrderBy(x => x.Series).ToList();
+                    lst = lst.OrderBy(x => x.Series).ToList();
                     break;
                 default:
-                    lst = fact.Data.OrderBy(x => x.Name).ToList();
+                    lst = lst.OrderBy(x => x.Name).ToList();
                     break;
             };
             InitMainList(lst, criterion);
@@ -350,6 +360,8 @@ namespace LibraryCatalog
 
             if (lstBooks.Items.Count>0)
                 lstBooks.SelectedIndex = 0;
+
+            IfSleep();
         }
         protected string GetStringByNameGenre(BookModel bm)
         {
@@ -466,6 +478,35 @@ namespace LibraryCatalog
                 IsSearch = true;
                 btnSearch.Text = "Search";
                 InitMainList(fact.Data);
+            }
+        }
+
+        private void OnShowKindChanged(object sender, EventArgs e)
+        {
+            bool IsInit =  cmbShowKind.SelectedValue.GetType().Name== "KeyValuePair`2";
+            if (!IsInit)
+            {
+                List<BookModel> lst = ShowKindFactoryCall();
+                InitMainList(lst);
+            }
+        }
+       protected List<BookModel> ShowKindFactoryCall()
+        {
+            int val = Convert.ToInt32(cmbShowKind.SelectedValue);
+            ShowKindFactory fact = new ShowKindFactory(val);
+            return fact.Data;
+
+        }
+        protected void IfSleep()
+        {
+            DateTime now = DateTime.Now;
+            DateTime dt1 = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+            DateTime dt2 = new DateTime(now.Year, now.Month, now.Day, 5, 0, 0);
+
+            if(now>dt1 &&  now<dt2)
+            {
+                dlgSleep dlg = new dlgSleep();
+                dlg.ShowDialog();
             }
         }
     }
