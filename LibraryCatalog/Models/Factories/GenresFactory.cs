@@ -23,9 +23,11 @@ namespace LibraryCatalog.Models.Factories
         {
             if (Data == null || Data.Count == 0)
             {
-                Data = new List<string>();
-                Data.Add("Novel");
-                Data.Add("Romance");
+                Data = new List<string>
+                {
+                    "Novel",
+                    "Romance"
+                };
             }
         }
 

@@ -13,13 +13,15 @@ namespace LibraryCatalog.Models.Factories
         {
             if (Data == null || Data.Count == 0)
             {
-                Data = new List<string>();
-                Data.Add("TXT");
-                Data.Add("PDF");
-                Data.Add("FB2");
-                Data.Add("MP3");
-                Data.Add("MP4");
-                Data.Add("M4B");
+                Data = new List<string>
+                {
+                    "TXT",
+                    "PDF",
+                    "FB2",
+                    "MP3",
+                    "MP4",
+                    "M4B"
+                };
             }
         }
 

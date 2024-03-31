@@ -19,6 +19,10 @@ namespace LibraryCatalog.Models.Serializers
 //            _filename = Constants.GetDebugXMLPath();
 //#else
             _filename = Constants.GetXMLPath();
+            if(!Directory.Exists(_filename))
+            {
+                Directory.CreateDirectory(_filename);
+            }
 //#endif
             UpdateFile();
             if(Data==null)

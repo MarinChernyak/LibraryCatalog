@@ -22,10 +22,14 @@ namespace LibraryCatalog.Models.Factories
                     Data = fact.Data;
                     break;
                 case 1:
-                    Data = fact.Data.Where(x => x.Format.Contains("TXT") || x.Format.Contains("FB2") || x.Format.Contains("PDF")).ToList();
+                    IEnumerable<BookModel>  data = fact.Data.Where(x => x.Format.Contains("TXT") || x.Format.Contains("FB2") || x.Format.Contains("PDF"));
+                    if(data!=null)
+                        Data = data.ToList();
                     break;
                 case 2:
-                    Data = fact.Data.Where(x => x.Format.Contains("MP3") || x.Format.Contains("MP4") || x.Format.Contains("M4B")).ToList();
+                    data  = fact.Data.Where(x => x.Format.Contains("MP3") || x.Format.Contains("MP4") || x.Format.Contains("M4B")).ToList();
+                    if (data != null)
+                        Data = data.ToList();
                     break;
             }; 
         }

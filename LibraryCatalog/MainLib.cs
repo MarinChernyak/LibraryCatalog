@@ -17,7 +17,7 @@ namespace LibraryCatalog
     public partial class MainLib : Form
     {
         protected List<string> Formats { get; set; }
-        protected BookModel _book;
+        protected BookModel _book = new BookModel();
         protected bool IsSearch;
         public MainLib()
         {
@@ -247,6 +247,10 @@ namespace LibraryCatalog
 //#else
             PasteTo = Constants.GetImgPath();
 //#endif
+            if (!Directory.Exists(PasteTo))
+            {
+                Directory.CreateDirectory(PasteTo);
+            }
             PasteTo = $"{PasteTo}{fname}";
             if (f.ShowDialog() == DialogResult.OK)
             {
@@ -276,6 +280,10 @@ namespace LibraryCatalog
 //#endif
 
                 string fname = $"{book.ID}.jpg";
+                if(!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
                 List<string> files = Directory.GetFiles(dir).ToList();
 
                 string filename = files.Where(x => x.Contains(fname)).FirstOrDefault();
