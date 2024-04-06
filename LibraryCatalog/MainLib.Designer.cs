@@ -29,509 +29,525 @@ namespace LibraryCatalog
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainLib));
-            this.lblSort = new System.Windows.Forms.Label();
-            this.cmbSortCriterion = new System.Windows.Forms.ComboBox();
-            this.btnSort = new System.Windows.Forms.Button();
-            this.lstBooks = new System.Windows.Forms.ListBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDElete = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.lblMain = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblAuthor = new System.Windows.Forms.Label();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSeries = new System.Windows.Forms.TextBox();
-            this.lblGenre = new System.Windows.Forms.Label();
-            this.cmbGenre = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbFormat = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDuration = new System.Windows.Forms.TextBox();
-            this.txtRating = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnAddGenre = new System.Windows.Forms.Button();
-            this.btnAddFormat = new System.Windows.Forms.Button();
-            this.cmbLang = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.RichTextBox();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.pictBox = new System.Windows.Forms.PictureBox();
-            this.btnSelectPict = new System.Windows.Forms.Button();
-            this.btnFinishEdit = new System.Windows.Forms.Button();
-            this.btnRemoveGenre = new System.Windows.Forms.Button();
-            this.btnRemoveFormat = new System.Windows.Forms.Button();
-            this.txtListFormats = new System.Windows.Forms.TextBox();
-            this.btnAddFormatToList = new System.Windows.Forms.Button();
-            this.ttAddFormatToList = new System.Windows.Forms.ToolTip(this.components);
-            this.txtSize = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmbShowKind = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictBox)).BeginInit();
-            this.SuspendLayout();
+            lblSort = new System.Windows.Forms.Label();
+            cmbSortCriterion = new System.Windows.Forms.ComboBox();
+            btnSort = new System.Windows.Forms.Button();
+            lstBooks = new System.Windows.Forms.ListBox();
+            btnAdd = new System.Windows.Forms.Button();
+            btnDElete = new System.Windows.Forms.Button();
+            btnSearch = new System.Windows.Forms.Button();
+            lblMain = new System.Windows.Forms.Label();
+            lblName = new System.Windows.Forms.Label();
+            txtName = new System.Windows.Forms.TextBox();
+            lblAuthor = new System.Windows.Forms.Label();
+            txtAuthor = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            txtSeries = new System.Windows.Forms.TextBox();
+            lblGenre = new System.Windows.Forms.Label();
+            cmbGenre = new System.Windows.Forms.ComboBox();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            cmbFormat = new System.Windows.Forms.ComboBox();
+            label4 = new System.Windows.Forms.Label();
+            txtDuration = new System.Windows.Forms.TextBox();
+            txtRating = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            btnAddGenre = new System.Windows.Forms.Button();
+            btnAddFormat = new System.Windows.Forms.Button();
+            label6 = new System.Windows.Forms.Label();
+            txtDescription = new System.Windows.Forms.RichTextBox();
+            btnEdit = new System.Windows.Forms.Button();
+            pictBox = new System.Windows.Forms.PictureBox();
+            btnSelectPict = new System.Windows.Forms.Button();
+            btnFinishEdit = new System.Windows.Forms.Button();
+            btnRemoveGenre = new System.Windows.Forms.Button();
+            btnRemoveFormat = new System.Windows.Forms.Button();
+            txtListFormats = new System.Windows.Forms.TextBox();
+            btnAddFormatToList = new System.Windows.Forms.Button();
+            ttAddFormatToList = new System.Windows.Forms.ToolTip(components);
+            txtSize = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            cmbShowKind = new System.Windows.Forms.ComboBox();
+            label9 = new System.Windows.Forms.Label();
+            cmbLang = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)pictBox).BeginInit();
+            SuspendLayout();
             // 
             // lblSort
             // 
-            this.lblSort.AutoSize = true;
-            this.lblSort.Location = new System.Drawing.Point(12, 50);
-            this.lblSort.Name = "lblSort";
-            this.lblSort.Size = new System.Drawing.Size(44, 15);
-            this.lblSort.TabIndex = 0;
-            this.lblSort.Text = "Sort by";
+            lblSort.AutoSize = true;
+            lblSort.Location = new System.Drawing.Point(12, 50);
+            lblSort.Name = "lblSort";
+            lblSort.Size = new System.Drawing.Size(44, 15);
+            lblSort.TabIndex = 0;
+            lblSort.Text = "Sort by";
             // 
             // cmbSortCriterion
             // 
-            this.cmbSortCriterion.FormattingEnabled = true;
-            this.cmbSortCriterion.Location = new System.Drawing.Point(77, 45);
-            this.cmbSortCriterion.Name = "cmbSortCriterion";
-            this.cmbSortCriterion.Size = new System.Drawing.Size(227, 23);
-            this.cmbSortCriterion.TabIndex = 1;
+            cmbSortCriterion.FormattingEnabled = true;
+            cmbSortCriterion.Location = new System.Drawing.Point(77, 45);
+            cmbSortCriterion.Name = "cmbSortCriterion";
+            cmbSortCriterion.Size = new System.Drawing.Size(227, 23);
+            cmbSortCriterion.TabIndex = 1;
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(310, 45);
-            this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(48, 23);
-            this.btnSort.TabIndex = 2;
-            this.btnSort.Text = "Sort";
-            this.btnSort.UseVisualStyleBackColor = true;
-            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            btnSort.Location = new System.Drawing.Point(310, 45);
+            btnSort.Name = "btnSort";
+            btnSort.Size = new System.Drawing.Size(48, 23);
+            btnSort.TabIndex = 2;
+            btnSort.Text = "Sort";
+            btnSort.UseVisualStyleBackColor = true;
+            btnSort.Click += btnSort_Click;
             // 
             // lstBooks
             // 
-            this.lstBooks.FormattingEnabled = true;
-            this.lstBooks.ItemHeight = 15;
-            this.lstBooks.Location = new System.Drawing.Point(12, 76);
-            this.lstBooks.Name = "lstBooks";
-            this.lstBooks.Size = new System.Drawing.Size(346, 349);
-            this.lstBooks.TabIndex = 3;
-            this.lstBooks.SelectedIndexChanged += new System.EventHandler(this.OnListSelectionChanged);
+            lstBooks.FormattingEnabled = true;
+            lstBooks.ItemHeight = 15;
+            lstBooks.Location = new System.Drawing.Point(12, 76);
+            lstBooks.Name = "lstBooks";
+            lstBooks.Size = new System.Drawing.Size(346, 634);
+            lstBooks.TabIndex = 3;
+            lstBooks.SelectedIndexChanged += OnListSelectionChanged;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(13, 730);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(112, 23);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Add New Book";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            btnAdd.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            btnAdd.Location = new System.Drawing.Point(393, 730);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new System.Drawing.Size(112, 23);
+            btnAdd.TabIndex = 4;
+            btnAdd.Text = "Add New Book";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnDElete
             // 
-            this.btnDElete.Location = new System.Drawing.Point(130, 730);
-            this.btnDElete.Name = "btnDElete";
-            this.btnDElete.Size = new System.Drawing.Size(112, 23);
-            this.btnDElete.TabIndex = 5;
-            this.btnDElete.Text = "Delete selected";
-            this.btnDElete.UseVisualStyleBackColor = true;
-            this.btnDElete.Click += new System.EventHandler(this.OnDeleteBook);
+            btnDElete.BackColor = System.Drawing.Color.IndianRed;
+            btnDElete.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            btnDElete.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            btnDElete.Location = new System.Drawing.Point(130, 730);
+            btnDElete.Name = "btnDElete";
+            btnDElete.Size = new System.Drawing.Size(112, 23);
+            btnDElete.TabIndex = 5;
+            btnDElete.Text = "Delete selected";
+            btnDElete.UseVisualStyleBackColor = false;
+            btnDElete.Click += OnDeleteBook;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(247, 730);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(112, 23);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.OnSearch);
+            btnSearch.Location = new System.Drawing.Point(12, 730);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new System.Drawing.Size(112, 23);
+            btnSearch.TabIndex = 4;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += OnSearch;
             // 
             // lblMain
             // 
-            this.lblMain.AutoSize = true;
-            this.lblMain.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMain.Location = new System.Drawing.Point(440, 0);
-            this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(262, 28);
-            this.lblMain.TabIndex = 6;
-            this.lblMain.Text = "Information about a book:";
+            lblMain.AutoSize = true;
+            lblMain.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMain.Location = new System.Drawing.Point(440, 0);
+            lblMain.Name = "lblMain";
+            lblMain.Size = new System.Drawing.Size(262, 28);
+            lblMain.TabIndex = 6;
+            lblMain.Text = "Information about a book:";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(393, 31);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(43, 15);
-            this.lblName.TabIndex = 7;
-            this.lblName.Text = "Name:";
+            lblName.AutoSize = true;
+            lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblName.Location = new System.Drawing.Point(393, 31);
+            lblName.Name = "lblName";
+            lblName.Size = new System.Drawing.Size(43, 15);
+            lblName.TabIndex = 7;
+            lblName.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtName.Location = new System.Drawing.Point(393, 49);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(371, 23);
-            this.txtName.TabIndex = 8;
+            txtName.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtName.Location = new System.Drawing.Point(393, 49);
+            txtName.Name = "txtName";
+            txtName.ReadOnly = true;
+            txtName.Size = new System.Drawing.Size(371, 23);
+            txtName.TabIndex = 8;
             // 
             // lblAuthor
             // 
-            this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblAuthor.Location = new System.Drawing.Point(393, 81);
-            this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(49, 15);
-            this.lblAuthor.TabIndex = 7;
-            this.lblAuthor.Text = "Author:";
+            lblAuthor.AutoSize = true;
+            lblAuthor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblAuthor.Location = new System.Drawing.Point(393, 81);
+            lblAuthor.Name = "lblAuthor";
+            lblAuthor.Size = new System.Drawing.Size(49, 15);
+            lblAuthor.TabIndex = 7;
+            lblAuthor.Text = "Author:";
             // 
             // txtAuthor
             // 
-            this.txtAuthor.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtAuthor.Location = new System.Drawing.Point(393, 100);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.ReadOnly = true;
-            this.txtAuthor.Size = new System.Drawing.Size(371, 23);
-            this.txtAuthor.TabIndex = 8;
+            txtAuthor.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtAuthor.Location = new System.Drawing.Point(393, 100);
+            txtAuthor.Name = "txtAuthor";
+            txtAuthor.ReadOnly = true;
+            txtAuthor.Size = new System.Drawing.Size(371, 23);
+            txtAuthor.TabIndex = 8;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(393, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Series:";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(393, 132);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(44, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Series:";
             // 
             // txtSeries
             // 
-            this.txtSeries.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSeries.Location = new System.Drawing.Point(393, 151);
-            this.txtSeries.Name = "txtSeries";
-            this.txtSeries.ReadOnly = true;
-            this.txtSeries.Size = new System.Drawing.Size(371, 23);
-            this.txtSeries.TabIndex = 8;
+            txtSeries.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtSeries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtSeries.Location = new System.Drawing.Point(393, 151);
+            txtSeries.Name = "txtSeries";
+            txtSeries.ReadOnly = true;
+            txtSeries.Size = new System.Drawing.Size(371, 23);
+            txtSeries.TabIndex = 8;
             // 
             // lblGenre
             // 
-            this.lblGenre.AutoSize = true;
-            this.lblGenre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblGenre.Location = new System.Drawing.Point(393, 183);
-            this.lblGenre.Name = "lblGenre";
-            this.lblGenre.Size = new System.Drawing.Size(45, 15);
-            this.lblGenre.TabIndex = 7;
-            this.lblGenre.Text = "Genre:";
+            lblGenre.AutoSize = true;
+            lblGenre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblGenre.Location = new System.Drawing.Point(393, 183);
+            lblGenre.Name = "lblGenre";
+            lblGenre.Size = new System.Drawing.Size(45, 15);
+            lblGenre.TabIndex = 7;
+            lblGenre.Text = "Genre:";
             // 
             // cmbGenre
             // 
-            this.cmbGenre.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cmbGenre.Enabled = false;
-            this.cmbGenre.FormattingEnabled = true;
-            this.cmbGenre.Location = new System.Drawing.Point(393, 202);
-            this.cmbGenre.Name = "cmbGenre";
-            this.cmbGenre.Size = new System.Drawing.Size(301, 23);
-            this.cmbGenre.TabIndex = 9;
+            cmbGenre.BackColor = System.Drawing.SystemColors.ControlLight;
+            cmbGenre.Enabled = false;
+            cmbGenre.FormattingEnabled = true;
+            cmbGenre.Location = new System.Drawing.Point(393, 202);
+            cmbGenre.Name = "cmbGenre";
+            cmbGenre.Size = new System.Drawing.Size(301, 23);
+            cmbGenre.TabIndex = 9;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(392, 383);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Description:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(836, 31);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(74, 15);
+            label2.TabIndex = 7;
+            label2.Text = "Description:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(393, 234);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Formats List:";
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label3.Location = new System.Drawing.Point(393, 234);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(77, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Formats List:";
             // 
             // cmbFormat
             // 
-            this.cmbFormat.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cmbFormat.Enabled = false;
-            this.cmbFormat.FormattingEnabled = true;
-            this.cmbFormat.Location = new System.Drawing.Point(633, 253);
-            this.cmbFormat.Name = "cmbFormat";
-            this.cmbFormat.Size = new System.Drawing.Size(61, 23);
-            this.cmbFormat.TabIndex = 9;
+            cmbFormat.BackColor = System.Drawing.SystemColors.ControlLight;
+            cmbFormat.Enabled = false;
+            cmbFormat.FormattingEnabled = true;
+            cmbFormat.Location = new System.Drawing.Point(633, 253);
+            cmbFormat.Name = "cmbFormat";
+            cmbFormat.Size = new System.Drawing.Size(61, 23);
+            cmbFormat.TabIndex = 9;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(393, 285);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Duration (hours):";
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(393, 285);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(101, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Duration (hours):";
             // 
             // txtDuration
             // 
-            this.txtDuration.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDuration.Location = new System.Drawing.Point(393, 304);
-            this.txtDuration.Name = "txtDuration";
-            this.txtDuration.ReadOnly = true;
-            this.txtDuration.Size = new System.Drawing.Size(101, 23);
-            this.txtDuration.TabIndex = 8;
+            txtDuration.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtDuration.Location = new System.Drawing.Point(393, 304);
+            txtDuration.Name = "txtDuration";
+            txtDuration.ReadOnly = true;
+            txtDuration.Size = new System.Drawing.Size(101, 23);
+            txtDuration.TabIndex = 8;
             // 
             // txtRating
             // 
-            this.txtRating.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtRating.Location = new System.Drawing.Point(663, 304);
-            this.txtRating.Name = "txtRating";
-            this.txtRating.ReadOnly = true;
-            this.txtRating.Size = new System.Drawing.Size(101, 23);
-            this.txtRating.TabIndex = 8;
+            txtRating.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtRating.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtRating.Location = new System.Drawing.Point(663, 304);
+            txtRating.Name = "txtRating";
+            txtRating.ReadOnly = true;
+            txtRating.Size = new System.Drawing.Size(101, 23);
+            txtRating.TabIndex = 8;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(663, 285);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 15);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Rating:";
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label5.Location = new System.Drawing.Point(663, 285);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(46, 15);
+            label5.TabIndex = 7;
+            label5.Text = "Rating:";
             // 
             // btnAddGenre
             // 
-            this.btnAddGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddGenre.Image = ((System.Drawing.Image)(resources.GetObject("btnAddGenre.Image")));
-            this.btnAddGenre.Location = new System.Drawing.Point(700, 202);
-            this.btnAddGenre.Name = "btnAddGenre";
-            this.btnAddGenre.Size = new System.Drawing.Size(29, 23);
-            this.btnAddGenre.TabIndex = 10;
-            this.btnAddGenre.UseVisualStyleBackColor = true;
-            this.btnAddGenre.Click += new System.EventHandler(this.OnAddGenre);
+            btnAddGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnAddGenre.Image = (System.Drawing.Image)resources.GetObject("btnAddGenre.Image");
+            btnAddGenre.Location = new System.Drawing.Point(700, 202);
+            btnAddGenre.Name = "btnAddGenre";
+            btnAddGenre.Size = new System.Drawing.Size(29, 23);
+            btnAddGenre.TabIndex = 10;
+            btnAddGenre.UseVisualStyleBackColor = true;
+            btnAddGenre.Click += OnAddGenre;
             // 
             // btnAddFormat
             // 
-            this.btnAddFormat.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormat.Image")));
-            this.btnAddFormat.Location = new System.Drawing.Point(700, 253);
-            this.btnAddFormat.Name = "btnAddFormat";
-            this.btnAddFormat.Size = new System.Drawing.Size(29, 23);
-            this.btnAddFormat.TabIndex = 10;
-            this.btnAddFormat.UseVisualStyleBackColor = true;
-            this.btnAddFormat.Click += new System.EventHandler(this.OnAddFormat);
-            // 
-            // cmbLang
-            // 
-            this.cmbLang.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cmbLang.Enabled = false;
-            this.cmbLang.FormattingEnabled = true;
-            this.cmbLang.Location = new System.Drawing.Point(393, 355);
-            this.cmbLang.Name = "cmbLang";
-            this.cmbLang.Size = new System.Drawing.Size(233, 23);
-            this.cmbLang.TabIndex = 11;
+            btnAddFormat.Image = (System.Drawing.Image)resources.GetObject("btnAddFormat.Image");
+            btnAddFormat.Location = new System.Drawing.Point(700, 253);
+            btnAddFormat.Name = "btnAddFormat";
+            btnAddFormat.Size = new System.Drawing.Size(29, 23);
+            btnAddFormat.TabIndex = 10;
+            btnAddFormat.UseVisualStyleBackColor = true;
+            btnAddFormat.Click += OnAddFormat;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(393, 336);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 15);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Language:";
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label6.Location = new System.Drawing.Point(393, 336);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(63, 15);
+            label6.TabIndex = 7;
+            label6.Text = "Language:";
             // 
             // txtDescription
             // 
-            this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDescription.Location = new System.Drawing.Point(392, 406);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(371, 306);
-            this.txtDescription.TabIndex = 12;
-            this.txtDescription.Text = "";
+            txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtDescription.Location = new System.Drawing.Point(836, 50);
+            txtDescription.Name = "txtDescription";
+            txtDescription.ReadOnly = true;
+            txtDescription.Size = new System.Drawing.Size(371, 301);
+            txtDescription.TabIndex = 12;
+            txtDescription.Text = "";
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(393, 730);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(112, 23);
-            this.btnEdit.TabIndex = 13;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            btnEdit.Location = new System.Drawing.Point(511, 730);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new System.Drawing.Size(112, 23);
+            btnEdit.TabIndex = 13;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // pictBox
             // 
-            this.pictBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictBox.InitialImage")));
-            this.pictBox.Location = new System.Drawing.Point(13, 457);
-            this.pictBox.Name = "pictBox";
-            this.pictBox.Size = new System.Drawing.Size(346, 256);
-            this.pictBox.TabIndex = 14;
-            this.pictBox.TabStop = false;
+            pictBox.BackgroundImage = (System.Drawing.Image)resources.GetObject("pictBox.BackgroundImage");
+            pictBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            pictBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictBox.InitialImage = (System.Drawing.Image)resources.GetObject("pictBox.InitialImage");
+            pictBox.Location = new System.Drawing.Point(836, 384);
+            pictBox.Name = "pictBox";
+            pictBox.Size = new System.Drawing.Size(371, 326);
+            pictBox.TabIndex = 14;
+            pictBox.TabStop = false;
             // 
             // btnSelectPict
             // 
-            this.btnSelectPict.Location = new System.Drawing.Point(522, 730);
-            this.btnSelectPict.Name = "btnSelectPict";
-            this.btnSelectPict.Size = new System.Drawing.Size(112, 23);
-            this.btnSelectPict.TabIndex = 15;
-            this.btnSelectPict.Text = "Select Picture";
-            this.btnSelectPict.UseVisualStyleBackColor = true;
-            this.btnSelectPict.Visible = false;
-            this.btnSelectPict.Click += new System.EventHandler(this.OnSelectPicture);
+            btnSelectPict.BackColor = System.Drawing.SystemColors.ControlDark;
+            btnSelectPict.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            btnSelectPict.Location = new System.Drawing.Point(836, 726);
+            btnSelectPict.Name = "btnSelectPict";
+            btnSelectPict.Size = new System.Drawing.Size(112, 23);
+            btnSelectPict.TabIndex = 15;
+            btnSelectPict.Text = "Select Picture";
+            btnSelectPict.UseVisualStyleBackColor = false;
+            btnSelectPict.Visible = false;
+            btnSelectPict.Click += OnSelectPicture;
             // 
             // btnFinishEdit
             // 
-            this.btnFinishEdit.Location = new System.Drawing.Point(651, 730);
-            this.btnFinishEdit.Name = "btnFinishEdit";
-            this.btnFinishEdit.Size = new System.Drawing.Size(112, 23);
-            this.btnFinishEdit.TabIndex = 16;
-            this.btnFinishEdit.Text = "Finish Edit";
-            this.btnFinishEdit.UseVisualStyleBackColor = true;
-            this.btnFinishEdit.Visible = false;
-            this.btnFinishEdit.Click += new System.EventHandler(this.OnFinishEdit);
+            btnFinishEdit.Location = new System.Drawing.Point(629, 730);
+            btnFinishEdit.Name = "btnFinishEdit";
+            btnFinishEdit.Size = new System.Drawing.Size(112, 23);
+            btnFinishEdit.TabIndex = 16;
+            btnFinishEdit.Text = "Finish Edit";
+            btnFinishEdit.UseVisualStyleBackColor = true;
+            btnFinishEdit.Visible = false;
+            btnFinishEdit.Click += OnFinishEdit;
             // 
             // btnRemoveGenre
             // 
-            this.btnRemoveGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveGenre.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveGenre.Image")));
-            this.btnRemoveGenre.Location = new System.Drawing.Point(735, 202);
-            this.btnRemoveGenre.Name = "btnRemoveGenre";
-            this.btnRemoveGenre.Size = new System.Drawing.Size(29, 23);
-            this.btnRemoveGenre.TabIndex = 10;
-            this.btnRemoveGenre.UseVisualStyleBackColor = true;
-            this.btnRemoveGenre.Click += new System.EventHandler(this.OnRemoveGenre);
+            btnRemoveGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnRemoveGenre.Image = (System.Drawing.Image)resources.GetObject("btnRemoveGenre.Image");
+            btnRemoveGenre.Location = new System.Drawing.Point(735, 202);
+            btnRemoveGenre.Name = "btnRemoveGenre";
+            btnRemoveGenre.Size = new System.Drawing.Size(29, 23);
+            btnRemoveGenre.TabIndex = 10;
+            btnRemoveGenre.UseVisualStyleBackColor = true;
+            btnRemoveGenre.Click += OnRemoveGenre;
             // 
             // btnRemoveFormat
             // 
-            this.btnRemoveFormat.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveFormat.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveFormat.Image")));
-            this.btnRemoveFormat.Location = new System.Drawing.Point(735, 253);
-            this.btnRemoveFormat.Name = "btnRemoveFormat";
-            this.btnRemoveFormat.Size = new System.Drawing.Size(29, 23);
-            this.btnRemoveFormat.TabIndex = 10;
-            this.btnRemoveFormat.UseVisualStyleBackColor = true;
-            this.btnRemoveFormat.Click += new System.EventHandler(this.OnRemoveFormat);
+            btnRemoveFormat.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnRemoveFormat.Image = (System.Drawing.Image)resources.GetObject("btnRemoveFormat.Image");
+            btnRemoveFormat.Location = new System.Drawing.Point(735, 253);
+            btnRemoveFormat.Name = "btnRemoveFormat";
+            btnRemoveFormat.Size = new System.Drawing.Size(29, 23);
+            btnRemoveFormat.TabIndex = 10;
+            btnRemoveFormat.UseVisualStyleBackColor = true;
+            btnRemoveFormat.Click += OnRemoveFormat;
             // 
             // txtListFormats
             // 
-            this.txtListFormats.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtListFormats.Location = new System.Drawing.Point(393, 253);
-            this.txtListFormats.Name = "txtListFormats";
-            this.txtListFormats.ReadOnly = true;
-            this.txtListFormats.Size = new System.Drawing.Size(195, 23);
-            this.txtListFormats.TabIndex = 17;
+            txtListFormats.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtListFormats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtListFormats.Location = new System.Drawing.Point(393, 253);
+            txtListFormats.Name = "txtListFormats";
+            txtListFormats.ReadOnly = true;
+            txtListFormats.Size = new System.Drawing.Size(195, 23);
+            txtListFormats.TabIndex = 17;
             // 
             // btnAddFormatToList
             // 
-            this.btnAddFormatToList.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormatToList.Image")));
-            this.btnAddFormatToList.Location = new System.Drawing.Point(595, 253);
-            this.btnAddFormatToList.Name = "btnAddFormatToList";
-            this.btnAddFormatToList.Size = new System.Drawing.Size(31, 23);
-            this.btnAddFormatToList.TabIndex = 18;
-            this.ttAddFormatToList.SetToolTip(this.btnAddFormatToList, "Add a format from the right combo to the list at left");
-            this.btnAddFormatToList.UseVisualStyleBackColor = true;
-            this.btnAddFormatToList.Click += new System.EventHandler(this.AddFormatToList);
+            btnAddFormatToList.Image = (System.Drawing.Image)resources.GetObject("btnAddFormatToList.Image");
+            btnAddFormatToList.Location = new System.Drawing.Point(595, 253);
+            btnAddFormatToList.Name = "btnAddFormatToList";
+            btnAddFormatToList.Size = new System.Drawing.Size(31, 23);
+            btnAddFormatToList.TabIndex = 18;
+            ttAddFormatToList.SetToolTip(btnAddFormatToList, "Add a format from the right combo to the list at left");
+            btnAddFormatToList.UseVisualStyleBackColor = true;
+            btnAddFormatToList.Click += AddFormatToList;
             // 
             // txtSize
             // 
-            this.txtSize.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSize.Location = new System.Drawing.Point(528, 304);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.ReadOnly = true;
-            this.txtSize.Size = new System.Drawing.Size(101, 23);
-            this.txtSize.TabIndex = 8;
+            txtSize.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtSize.Location = new System.Drawing.Point(528, 304);
+            txtSize.Name = "txtSize";
+            txtSize.ReadOnly = true;
+            txtSize.Size = new System.Drawing.Size(101, 23);
+            txtSize.TabIndex = 8;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(528, 285);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 15);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Size (Mb):";
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label7.Location = new System.Drawing.Point(528, 285);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(62, 15);
+            label7.TabIndex = 7;
+            label7.Text = "Size (Mb):";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(13, 439);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 15);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Book Cover:";
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label8.Location = new System.Drawing.Point(835, 363);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(75, 15);
+            label8.TabIndex = 7;
+            label8.Text = "Book Cover:";
             // 
             // cmbShowKind
             // 
-            this.cmbShowKind.FormattingEnabled = true;
-            this.cmbShowKind.Location = new System.Drawing.Point(77, 14);
-            this.cmbShowKind.Name = "cmbShowKind";
-            this.cmbShowKind.Size = new System.Drawing.Size(227, 23);
-            this.cmbShowKind.TabIndex = 22;
-            this.cmbShowKind.SelectedIndexChanged += new System.EventHandler(this.OnShowKindChanged);
+            cmbShowKind.FormattingEnabled = true;
+            cmbShowKind.Location = new System.Drawing.Point(77, 14);
+            cmbShowKind.Name = "cmbShowKind";
+            cmbShowKind.Size = new System.Drawing.Size(227, 23);
+            cmbShowKind.TabIndex = 22;
+            cmbShowKind.SelectedIndexChanged += OnShowKindChanged;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 15);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Show just";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(12, 17);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(58, 15);
+            label9.TabIndex = 21;
+            label9.Text = "Show just";
+            // 
+            // cmbLang
+            // 
+            cmbLang.BackColor = System.Drawing.SystemColors.ControlLight;
+            cmbLang.Enabled = false;
+            cmbLang.FormattingEnabled = true;
+            cmbLang.Location = new System.Drawing.Point(393, 355);
+            cmbLang.Name = "cmbLang";
+            cmbLang.Size = new System.Drawing.Size(233, 23);
+            cmbLang.TabIndex = 11;
             // 
             // MainLib
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 761);
-            this.Controls.Add(this.cmbShowKind);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.btnAddFormatToList);
-            this.Controls.Add(this.txtListFormats);
-            this.Controls.Add(this.btnFinishEdit);
-            this.Controls.Add(this.btnSelectPict);
-            this.Controls.Add(this.pictBox);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.cmbLang);
-            this.Controls.Add(this.btnAddFormat);
-            this.Controls.Add(this.btnRemoveFormat);
-            this.Controls.Add(this.btnRemoveGenre);
-            this.Controls.Add(this.btnAddGenre);
-            this.Controls.Add(this.cmbFormat);
-            this.Controls.Add(this.cmbGenre);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtRating);
-            this.Controls.Add(this.txtSize);
-            this.Controls.Add(this.txtDuration);
-            this.Controls.Add(this.txtSeries);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblGenre);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtAuthor);
-            this.Controls.Add(this.lblAuthor);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblMain);
-            this.Controls.Add(this.btnDElete);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lstBooks);
-            this.Controls.Add(this.btnSort);
-            this.Controls.Add(this.cmbSortCriterion);
-            this.Controls.Add(this.lblSort);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MainLib";
-            this.Text = "Библиотека Танюшечки Ивановой";
-            ((System.ComponentModel.ISupportInitialize)(this.pictBox)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1219, 761);
+            Controls.Add(cmbShowKind);
+            Controls.Add(label9);
+            Controls.Add(btnAddFormatToList);
+            Controls.Add(txtListFormats);
+            Controls.Add(btnFinishEdit);
+            Controls.Add(btnSelectPict);
+            Controls.Add(pictBox);
+            Controls.Add(btnEdit);
+            Controls.Add(txtDescription);
+            Controls.Add(cmbLang);
+            Controls.Add(btnAddFormat);
+            Controls.Add(btnRemoveFormat);
+            Controls.Add(btnRemoveGenre);
+            Controls.Add(btnAddGenre);
+            Controls.Add(cmbFormat);
+            Controls.Add(cmbGenre);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label7);
+            Controls.Add(label4);
+            Controls.Add(txtRating);
+            Controls.Add(txtSize);
+            Controls.Add(txtDuration);
+            Controls.Add(txtSeries);
+            Controls.Add(label3);
+            Controls.Add(label8);
+            Controls.Add(label2);
+            Controls.Add(lblGenre);
+            Controls.Add(label1);
+            Controls.Add(txtAuthor);
+            Controls.Add(lblAuthor);
+            Controls.Add(txtName);
+            Controls.Add(lblName);
+            Controls.Add(lblMain);
+            Controls.Add(btnDElete);
+            Controls.Add(btnSearch);
+            Controls.Add(btnAdd);
+            Controls.Add(lstBooks);
+            Controls.Add(btnSort);
+            Controls.Add(cmbSortCriterion);
+            Controls.Add(lblSort);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Name = "MainLib";
+            Text = "Библиотека Танюшечки Ивановой";
+            ((System.ComponentModel.ISupportInitialize)pictBox).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -561,7 +577,6 @@ namespace LibraryCatalog
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAddGenre;
         private System.Windows.Forms.Button btnAddFormat;
-        private System.Windows.Forms.ComboBox cmbLang;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.Button btnEdit;
@@ -578,6 +593,7 @@ namespace LibraryCatalog
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbShowKind;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbLang;
     }
 }
 

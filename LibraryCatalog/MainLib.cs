@@ -34,7 +34,7 @@ namespace LibraryCatalog
             cmbSource["By Author"] = "2";
             cmbSource["By Genre"] = "3";
             cmbSource["By Series"] = "4";
-            cmbSortCriterion.DataSource = new BindingSource( cmbSource, null);
+            cmbSortCriterion.DataSource = new BindingSource(cmbSource, null);
             cmbSortCriterion.DisplayMember = "Key";
             cmbSortCriterion.ValueMember = "Value";
             cmbSortCriterion.SelectedIndex = 0;
@@ -46,7 +46,7 @@ namespace LibraryCatalog
             cmbShowKind.DataSource = new BindingSource(cmbSourceShow, null);
             cmbShowKind.DisplayMember = "Key";
             cmbShowKind.ValueMember = "Value";
-          
+
             //------------------------------------------------------------------
             cmbSource = new Dictionary<string, string>();
             cmbSource["English"] = "1";
@@ -62,18 +62,18 @@ namespace LibraryCatalog
             GenresFactory fg = new GenresFactory();
             cmbGenre.DataSource = fg.Data;
 
-            
+
         }
         protected void InitBooks()
         {
             List<BookModel> lst = ShowKindFactoryCall();
-            InitMainList( lst);
+            InitMainList(lst);
             InitFields((BookModel)lstBooks.SelectedItem);
-            
+
         }
         protected void InitFields(BookModel book)
         {
-            if (book!=null && book.Name != Constants.NoBooks)
+            if (book != null && book.Name != Constants.NoBooks)
             {
                 txtAuthor.Text = book.Author;
                 txtDuration.Text = book.Duration;
@@ -82,17 +82,17 @@ namespace LibraryCatalog
                 txtDescription.Text = book.Description;
                 txtSeries.Text = book.Series;
                 txtRating.Text = book.Rating;
-                txtListFormats.Text= book.Format;
+                txtListFormats.Text = book.Format;
                 txtSize.Text = book.Size;
                 cmbGenre.SelectedItem = book.Genre;
                 cmbLang.SelectedItem = book.Language;
                 string filename = string.Empty;
 
-//#if DEBUG
+                //#if DEBUG
                 //filename = Constants.GetDebugImgPath();
-//#else
+                //#else
                 filename = Constants.GetImgPath();
-//#endif
+                //#endif
                 string imgpath = $"{filename}unknown_pic.png";
                 if (!String.IsNullOrEmpty(book.Image))
                 {
@@ -103,6 +103,8 @@ namespace LibraryCatalog
                 int w = img.Width;
                 Bitmap b = new Bitmap(imgpath);
                 Utilities.FillPictureBox(pictBox, b);
+
+                //InitKeyWords(book.Keywords);
             }
         }
         private void btnAdd_Click(object sender, EventArgs e)
@@ -118,7 +120,7 @@ namespace LibraryCatalog
         protected void ClearBookInfo()
         {
             txtAuthor.Text = string.Empty;
-            txtSize.Text =string.Empty;
+            txtSize.Text = string.Empty;
             txtDuration.Text = string.Empty;
             txtName.Text = string.Empty;
             txtSeries.Text = string.Empty;
@@ -192,7 +194,7 @@ namespace LibraryCatalog
         //        h = h / rate;
         //        w = w / rate;
         //    }
-            
+
 
         //    Bitmap resized = new Bitmap(bmp, new Size((int)w, (int)h));
         //    pictBox.Image = resized;
@@ -221,7 +223,7 @@ namespace LibraryCatalog
             _book.Description = txtDescription.Text;
             _book.Duration = txtDuration.Text;
             _book.Format = txtListFormats.Text;
-            _book.Genre = cmbGenre.SelectedItem.ToString();            
+            _book.Genre = cmbGenre.SelectedItem.ToString();
 
             BooksFactory fact = new BooksFactory();
             List<BookModel> lst = fact.Data;
@@ -242,11 +244,11 @@ namespace LibraryCatalog
             f.Filter = "jpg files (*.jpg)|*.jpg|png files (*.png)|*.png|gif files (*.gif)|*.gif|tif files (*.tif)|*.tif ";
 
             string PasteTo = string.Empty;
-//#if DEBUG
-//            PasteTo = Constants.GetDebugImgPath();
-//#else
+            //#if DEBUG
+            //            PasteTo = Constants.GetDebugImgPath();
+            //#else
             PasteTo = Constants.GetImgPath();
-//#endif
+            //#endif
             if (!Directory.Exists(PasteTo))
             {
                 Directory.CreateDirectory(PasteTo);
@@ -261,7 +263,7 @@ namespace LibraryCatalog
 
                 File.Copy(FileTitle, PasteTo); // change to move
                 _book.Image = $"{fname}.{ext}";
-                MessageBox.Show($"The selected file has been copied notmally and renamed to {fname}.{ext} ", "File Copied",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show($"The selected file has been copied notmally and renamed to {fname}.{ext} ", "File Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         protected void DeletePicture()
@@ -269,18 +271,18 @@ namespace LibraryCatalog
             BookModel book = (BookModel)lstBooks.SelectedItem;
             if (book != null)
             {
-                if(pictBox.Image!=null)
+                if (pictBox.Image != null)
                     pictBox.Image.Dispose();
 
                 string dir = string.Empty;
-//#if DEBUG
-//                dir = Constants.GetDebugImgPath();
-//#else
+                //#if DEBUG
+                //                dir = Constants.GetDebugImgPath();
+                //#else
                 dir = Constants.GetImgPath();
-//#endif
+                //#endif
 
                 string fname = $"{book.ID}.jpg";
-                if(!Directory.Exists(dir))
+                if (!Directory.Exists(dir))
                 {
                     Directory.CreateDirectory(dir);
                 }
@@ -290,7 +292,7 @@ namespace LibraryCatalog
                 if (!string.IsNullOrEmpty(filename))
 
                 {
-                    
+
                     try
                     {
                         if (MessageBox.Show($"The current picture will be deleted permanently! Are you sure? ", "Delete File ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
@@ -300,7 +302,7 @@ namespace LibraryCatalog
                             File.Delete(filename);
                         }
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
 
                     }
@@ -311,7 +313,7 @@ namespace LibraryCatalog
 
         private void OnDeleteBook(object sender, EventArgs e)
         {
-            if(_book !=null && _book.Name!=Constants.NoBooks)
+            if (_book != null && _book.Name != Constants.NoBooks)
             {
                 if (MessageBox.Show($"The selected book will be deleted permanently! Are you sure? ", "Delete Book ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
@@ -322,7 +324,7 @@ namespace LibraryCatalog
                     fact.SetData(lst);
                     fact = new BooksFactory();
                     ClearBookInfo();
-                    InitMainList(fact.Data,1);
+                    InitMainList(fact.Data, 1);
                     ControlsReadonly(true);
                 }
             }
@@ -331,7 +333,7 @@ namespace LibraryCatalog
         {
             int criterion = Convert.ToInt32(cmbSortCriterion.SelectedValue);
             List<BookModel> lst = ShowKindFactoryCall();
-            switch(criterion)
+            switch (criterion)
             {
                 case 1:
                     lst = lst.OrderBy(x => x.Name).ToList();
@@ -351,13 +353,13 @@ namespace LibraryCatalog
             };
             InitMainList(lst, criterion);
         }
-        protected void InitMainList(List<BookModel> lst, int criterion=1)
+        protected void InitMainList(List<BookModel> lst, int criterion = 1)
         {
             lstBooks.DataSource = null;
             lstBooks.DataSource = lst;
-            if(criterion==1)
+            if (criterion == 1)
                 lstBooks.DisplayMember = "TextField";//by Name
-            else if(criterion == 2)
+            else if (criterion == 2)
                 lstBooks.DisplayMember = "TextFieldByAuthor";
             else if (criterion == 3)
                 lstBooks.DisplayMember = "TextFieldByGenre";
@@ -366,7 +368,7 @@ namespace LibraryCatalog
             lstBooks.ValueMember = "ID";
 
 
-            if (lstBooks.Items.Count>0)
+            if (lstBooks.Items.Count > 0)
                 lstBooks.SelectedIndex = 0;
 
             IfSleep();
@@ -458,7 +460,7 @@ namespace LibraryCatalog
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                   
+
                     List<BookModel> lstBooks = fact.Data;
                     if (!string.IsNullOrEmpty(dlg.Author))
                     {
@@ -472,7 +474,7 @@ namespace LibraryCatalog
                     {
                         lstBooks = lstBooks.Where(x => x.Series.Contains(dlg.Series)).ToList();
                     }
-                    if (!string.IsNullOrEmpty(dlg.BookName)&& lstBooks.Count > 0)
+                    if (!string.IsNullOrEmpty(dlg.BookName) && lstBooks.Count > 0)
                     {
                         lstBooks = lstBooks.Where(x => x.Name.Contains(dlg.BookName)).ToList();
                     }
@@ -491,14 +493,14 @@ namespace LibraryCatalog
 
         private void OnShowKindChanged(object sender, EventArgs e)
         {
-            bool IsInit =  cmbShowKind.SelectedValue.GetType().Name== "KeyValuePair`2";
+            bool IsInit = cmbShowKind.SelectedValue.GetType().Name == "KeyValuePair`2";
             if (!IsInit)
             {
                 List<BookModel> lst = ShowKindFactoryCall();
                 InitMainList(lst);
             }
         }
-       protected List<BookModel> ShowKindFactoryCall()
+        protected List<BookModel> ShowKindFactoryCall()
         {
             int val = Convert.ToInt32(cmbShowKind.SelectedValue);
             ShowKindFactory fact = new ShowKindFactory(val);
@@ -511,11 +513,17 @@ namespace LibraryCatalog
             DateTime dt1 = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime dt2 = new DateTime(now.Year, now.Month, now.Day, 5, 0, 0);
 
-            if(now>dt1 &&  now<dt2)
+            if (now > dt1 && now < dt2)
             {
                 dlgSleep dlg = new dlgSleep();
                 dlg.ShowDialog();
             }
+        }
+
+
+        private void btnNewKW_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
