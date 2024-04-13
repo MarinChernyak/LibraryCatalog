@@ -29,7 +29,6 @@ namespace LibraryCatalog
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainLib));
             lblSort = new System.Windows.Forms.Label();
             cmbSortCriterion = new System.Windows.Forms.ComboBox();
@@ -66,13 +65,16 @@ namespace LibraryCatalog
             btnRemoveFormat = new System.Windows.Forms.Button();
             txtListFormats = new System.Windows.Forms.TextBox();
             btnAddFormatToList = new System.Windows.Forms.Button();
-            ttAddFormatToList = new System.Windows.Forms.ToolTip(components);
-            txtSize = new System.Windows.Forms.TextBox();
-            label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             cmbShowKind = new System.Windows.Forms.ComboBox();
             label9 = new System.Windows.Forms.Label();
             cmbLang = new System.Windows.Forms.ComboBox();
+            label7 = new System.Windows.Forms.Label();
+            cmbKeywords = new System.Windows.Forms.ComboBox();
+            btnRemoveKW = new System.Windows.Forms.Button();
+            btnAddKW = new System.Windows.Forms.Button();
+            txtKeywords = new System.Windows.Forms.TextBox();
+            btnAddKWtoList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)pictBox).BeginInit();
             SuspendLayout();
             // 
@@ -109,7 +111,7 @@ namespace LibraryCatalog
             lstBooks.ItemHeight = 15;
             lstBooks.Location = new System.Drawing.Point(12, 76);
             lstBooks.Name = "lstBooks";
-            lstBooks.Size = new System.Drawing.Size(346, 634);
+            lstBooks.Size = new System.Drawing.Size(371, 319);
             lstBooks.TabIndex = 3;
             lstBooks.SelectedIndexChanged += OnListSelectionChanged;
             // 
@@ -117,7 +119,7 @@ namespace LibraryCatalog
             // 
             btnAdd.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
-            btnAdd.Location = new System.Drawing.Point(393, 730);
+            btnAdd.Location = new System.Drawing.Point(410, 730);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new System.Drawing.Size(112, 23);
             btnAdd.TabIndex = 4;
@@ -130,7 +132,7 @@ namespace LibraryCatalog
             btnDElete.BackColor = System.Drawing.Color.IndianRed;
             btnDElete.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             btnDElete.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            btnDElete.Location = new System.Drawing.Point(130, 730);
+            btnDElete.Location = new System.Drawing.Point(141, 730);
             btnDElete.Name = "btnDElete";
             btnDElete.Size = new System.Drawing.Size(112, 23);
             btnDElete.TabIndex = 5;
@@ -140,7 +142,7 @@ namespace LibraryCatalog
             // 
             // btnSearch
             // 
-            btnSearch.Location = new System.Drawing.Point(12, 730);
+            btnSearch.Location = new System.Drawing.Point(11, 730);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new System.Drawing.Size(112, 23);
             btnSearch.TabIndex = 4;
@@ -152,7 +154,7 @@ namespace LibraryCatalog
             // 
             lblMain.AutoSize = true;
             lblMain.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblMain.Location = new System.Drawing.Point(440, 0);
+            lblMain.Location = new System.Drawing.Point(457, 0);
             lblMain.Name = "lblMain";
             lblMain.Size = new System.Drawing.Size(262, 28);
             lblMain.TabIndex = 6;
@@ -162,7 +164,7 @@ namespace LibraryCatalog
             // 
             lblName.AutoSize = true;
             lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblName.Location = new System.Drawing.Point(393, 31);
+            lblName.Location = new System.Drawing.Point(410, 31);
             lblName.Name = "lblName";
             lblName.Size = new System.Drawing.Size(43, 15);
             lblName.TabIndex = 7;
@@ -172,17 +174,17 @@ namespace LibraryCatalog
             // 
             txtName.BackColor = System.Drawing.SystemColors.ControlLight;
             txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtName.Location = new System.Drawing.Point(393, 49);
+            txtName.Location = new System.Drawing.Point(410, 49);
             txtName.Name = "txtName";
             txtName.ReadOnly = true;
-            txtName.Size = new System.Drawing.Size(371, 23);
+            txtName.Size = new System.Drawing.Size(380, 23);
             txtName.TabIndex = 8;
             // 
             // lblAuthor
             // 
             lblAuthor.AutoSize = true;
             lblAuthor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblAuthor.Location = new System.Drawing.Point(393, 81);
+            lblAuthor.Location = new System.Drawing.Point(410, 81);
             lblAuthor.Name = "lblAuthor";
             lblAuthor.Size = new System.Drawing.Size(49, 15);
             lblAuthor.TabIndex = 7;
@@ -192,17 +194,17 @@ namespace LibraryCatalog
             // 
             txtAuthor.BackColor = System.Drawing.SystemColors.ControlLight;
             txtAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtAuthor.Location = new System.Drawing.Point(393, 100);
+            txtAuthor.Location = new System.Drawing.Point(410, 100);
             txtAuthor.Name = "txtAuthor";
             txtAuthor.ReadOnly = true;
-            txtAuthor.Size = new System.Drawing.Size(371, 23);
+            txtAuthor.Size = new System.Drawing.Size(380, 23);
             txtAuthor.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(393, 132);
+            label1.Location = new System.Drawing.Point(410, 132);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(44, 15);
             label1.TabIndex = 7;
@@ -212,17 +214,17 @@ namespace LibraryCatalog
             // 
             txtSeries.BackColor = System.Drawing.SystemColors.ControlLight;
             txtSeries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtSeries.Location = new System.Drawing.Point(393, 151);
+            txtSeries.Location = new System.Drawing.Point(410, 151);
             txtSeries.Name = "txtSeries";
             txtSeries.ReadOnly = true;
-            txtSeries.Size = new System.Drawing.Size(371, 23);
+            txtSeries.Size = new System.Drawing.Size(380, 23);
             txtSeries.TabIndex = 8;
             // 
             // lblGenre
             // 
             lblGenre.AutoSize = true;
             lblGenre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblGenre.Location = new System.Drawing.Point(393, 183);
+            lblGenre.Location = new System.Drawing.Point(410, 183);
             lblGenre.Name = "lblGenre";
             lblGenre.Size = new System.Drawing.Size(45, 15);
             lblGenre.TabIndex = 7;
@@ -233,16 +235,16 @@ namespace LibraryCatalog
             cmbGenre.BackColor = System.Drawing.SystemColors.ControlLight;
             cmbGenre.Enabled = false;
             cmbGenre.FormattingEnabled = true;
-            cmbGenre.Location = new System.Drawing.Point(393, 202);
+            cmbGenre.Location = new System.Drawing.Point(410, 202);
             cmbGenre.Name = "cmbGenre";
-            cmbGenre.Size = new System.Drawing.Size(301, 23);
+            cmbGenre.Size = new System.Drawing.Size(380, 23);
             cmbGenre.TabIndex = 9;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(836, 31);
+            label2.Location = new System.Drawing.Point(410, 398);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(74, 15);
             label2.TabIndex = 7;
@@ -252,7 +254,7 @@ namespace LibraryCatalog
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(393, 234);
+            label3.Location = new System.Drawing.Point(410, 234);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(77, 15);
             label3.TabIndex = 7;
@@ -263,16 +265,16 @@ namespace LibraryCatalog
             cmbFormat.BackColor = System.Drawing.SystemColors.ControlLight;
             cmbFormat.Enabled = false;
             cmbFormat.FormattingEnabled = true;
-            cmbFormat.Location = new System.Drawing.Point(633, 253);
+            cmbFormat.Location = new System.Drawing.Point(648, 253);
             cmbFormat.Name = "cmbFormat";
-            cmbFormat.Size = new System.Drawing.Size(61, 23);
+            cmbFormat.Size = new System.Drawing.Size(142, 23);
             cmbFormat.TabIndex = 9;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(393, 285);
+            label4.Location = new System.Drawing.Point(410, 346);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(101, 15);
             label4.TabIndex = 7;
@@ -282,27 +284,27 @@ namespace LibraryCatalog
             // 
             txtDuration.BackColor = System.Drawing.SystemColors.ControlLight;
             txtDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtDuration.Location = new System.Drawing.Point(393, 304);
+            txtDuration.Location = new System.Drawing.Point(410, 368);
             txtDuration.Name = "txtDuration";
             txtDuration.ReadOnly = true;
-            txtDuration.Size = new System.Drawing.Size(101, 23);
+            txtDuration.Size = new System.Drawing.Size(133, 23);
             txtDuration.TabIndex = 8;
             // 
             // txtRating
             // 
             txtRating.BackColor = System.Drawing.SystemColors.ControlLight;
             txtRating.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtRating.Location = new System.Drawing.Point(663, 304);
+            txtRating.Location = new System.Drawing.Point(569, 368);
             txtRating.Name = "txtRating";
             txtRating.ReadOnly = true;
-            txtRating.Size = new System.Drawing.Size(101, 23);
+            txtRating.Size = new System.Drawing.Size(133, 23);
             txtRating.TabIndex = 8;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(663, 285);
+            label5.Location = new System.Drawing.Point(569, 346);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(46, 15);
             label5.TabIndex = 7;
@@ -312,7 +314,7 @@ namespace LibraryCatalog
             // 
             btnAddGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnAddGenre.Image = (System.Drawing.Image)resources.GetObject("btnAddGenre.Image");
-            btnAddGenre.Location = new System.Drawing.Point(700, 202);
+            btnAddGenre.Location = new System.Drawing.Point(798, 202);
             btnAddGenre.Name = "btnAddGenre";
             btnAddGenre.Size = new System.Drawing.Size(29, 23);
             btnAddGenre.TabIndex = 10;
@@ -322,7 +324,7 @@ namespace LibraryCatalog
             // btnAddFormat
             // 
             btnAddFormat.Image = (System.Drawing.Image)resources.GetObject("btnAddFormat.Image");
-            btnAddFormat.Location = new System.Drawing.Point(700, 253);
+            btnAddFormat.Location = new System.Drawing.Point(796, 253);
             btnAddFormat.Name = "btnAddFormat";
             btnAddFormat.Size = new System.Drawing.Size(29, 23);
             btnAddFormat.TabIndex = 10;
@@ -333,7 +335,7 @@ namespace LibraryCatalog
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(393, 336);
+            label6.Location = new System.Drawing.Point(728, 346);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(63, 15);
             label6.TabIndex = 7;
@@ -342,16 +344,16 @@ namespace LibraryCatalog
             // txtDescription
             // 
             txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
-            txtDescription.Location = new System.Drawing.Point(836, 50);
+            txtDescription.Location = new System.Drawing.Point(410, 423);
             txtDescription.Name = "txtDescription";
             txtDescription.ReadOnly = true;
-            txtDescription.Size = new System.Drawing.Size(371, 301);
+            txtDescription.Size = new System.Drawing.Size(452, 301);
             txtDescription.TabIndex = 12;
             txtDescription.Text = "";
             // 
             // btnEdit
             // 
-            btnEdit.Location = new System.Drawing.Point(511, 730);
+            btnEdit.Location = new System.Drawing.Point(579, 730);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new System.Drawing.Size(112, 23);
             btnEdit.TabIndex = 13;
@@ -365,9 +367,9 @@ namespace LibraryCatalog
             pictBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             pictBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictBox.InitialImage = (System.Drawing.Image)resources.GetObject("pictBox.InitialImage");
-            pictBox.Location = new System.Drawing.Point(836, 384);
+            pictBox.Location = new System.Drawing.Point(12, 423);
             pictBox.Name = "pictBox";
-            pictBox.Size = new System.Drawing.Size(371, 326);
+            pictBox.Size = new System.Drawing.Size(371, 301);
             pictBox.TabIndex = 14;
             pictBox.TabStop = false;
             // 
@@ -375,7 +377,7 @@ namespace LibraryCatalog
             // 
             btnSelectPict.BackColor = System.Drawing.SystemColors.ControlDark;
             btnSelectPict.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            btnSelectPict.Location = new System.Drawing.Point(836, 726);
+            btnSelectPict.Location = new System.Drawing.Point(271, 730);
             btnSelectPict.Name = "btnSelectPict";
             btnSelectPict.Size = new System.Drawing.Size(112, 23);
             btnSelectPict.TabIndex = 15;
@@ -386,7 +388,7 @@ namespace LibraryCatalog
             // 
             // btnFinishEdit
             // 
-            btnFinishEdit.Location = new System.Drawing.Point(629, 730);
+            btnFinishEdit.Location = new System.Drawing.Point(748, 730);
             btnFinishEdit.Name = "btnFinishEdit";
             btnFinishEdit.Size = new System.Drawing.Size(112, 23);
             btnFinishEdit.TabIndex = 16;
@@ -399,7 +401,7 @@ namespace LibraryCatalog
             // 
             btnRemoveGenre.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnRemoveGenre.Image = (System.Drawing.Image)resources.GetObject("btnRemoveGenre.Image");
-            btnRemoveGenre.Location = new System.Drawing.Point(735, 202);
+            btnRemoveGenre.Location = new System.Drawing.Point(833, 202);
             btnRemoveGenre.Name = "btnRemoveGenre";
             btnRemoveGenre.Size = new System.Drawing.Size(29, 23);
             btnRemoveGenre.TabIndex = 10;
@@ -410,7 +412,7 @@ namespace LibraryCatalog
             // 
             btnRemoveFormat.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnRemoveFormat.Image = (System.Drawing.Image)resources.GetObject("btnRemoveFormat.Image");
-            btnRemoveFormat.Location = new System.Drawing.Point(735, 253);
+            btnRemoveFormat.Location = new System.Drawing.Point(831, 253);
             btnRemoveFormat.Name = "btnRemoveFormat";
             btnRemoveFormat.Size = new System.Drawing.Size(29, 23);
             btnRemoveFormat.TabIndex = 10;
@@ -421,7 +423,7 @@ namespace LibraryCatalog
             // 
             txtListFormats.BackColor = System.Drawing.SystemColors.ControlLight;
             txtListFormats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtListFormats.Location = new System.Drawing.Point(393, 253);
+            txtListFormats.Location = new System.Drawing.Point(410, 253);
             txtListFormats.Name = "txtListFormats";
             txtListFormats.ReadOnly = true;
             txtListFormats.Size = new System.Drawing.Size(195, 23);
@@ -430,39 +432,18 @@ namespace LibraryCatalog
             // btnAddFormatToList
             // 
             btnAddFormatToList.Image = (System.Drawing.Image)resources.GetObject("btnAddFormatToList.Image");
-            btnAddFormatToList.Location = new System.Drawing.Point(595, 253);
+            btnAddFormatToList.Location = new System.Drawing.Point(611, 253);
             btnAddFormatToList.Name = "btnAddFormatToList";
             btnAddFormatToList.Size = new System.Drawing.Size(31, 23);
             btnAddFormatToList.TabIndex = 18;
-            ttAddFormatToList.SetToolTip(btnAddFormatToList, "Add a format from the right combo to the list at left");
             btnAddFormatToList.UseVisualStyleBackColor = true;
             btnAddFormatToList.Click += AddFormatToList;
-            // 
-            // txtSize
-            // 
-            txtSize.BackColor = System.Drawing.SystemColors.ControlLight;
-            txtSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtSize.Location = new System.Drawing.Point(528, 304);
-            txtSize.Name = "txtSize";
-            txtSize.ReadOnly = true;
-            txtSize.Size = new System.Drawing.Size(101, 23);
-            txtSize.TabIndex = 8;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(528, 285);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(62, 15);
-            label7.TabIndex = 7;
-            label7.Text = "Size (Mb):";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(835, 363);
+            label8.Location = new System.Drawing.Point(11, 398);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(75, 15);
             label8.TabIndex = 7;
@@ -491,39 +472,104 @@ namespace LibraryCatalog
             cmbLang.BackColor = System.Drawing.SystemColors.ControlLight;
             cmbLang.Enabled = false;
             cmbLang.FormattingEnabled = true;
-            cmbLang.Location = new System.Drawing.Point(393, 355);
+            cmbLang.Location = new System.Drawing.Point(728, 368);
             cmbLang.Name = "cmbLang";
-            cmbLang.Size = new System.Drawing.Size(233, 23);
+            cmbLang.Size = new System.Drawing.Size(133, 23);
             cmbLang.TabIndex = 11;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label7.Location = new System.Drawing.Point(410, 285);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(65, 15);
+            label7.TabIndex = 7;
+            label7.Text = "Keywords:";
+            // 
+            // cmbKeywords
+            // 
+            cmbKeywords.BackColor = System.Drawing.SystemColors.ControlLight;
+            cmbKeywords.Enabled = false;
+            cmbKeywords.FormattingEnabled = true;
+            cmbKeywords.Location = new System.Drawing.Point(648, 304);
+            cmbKeywords.Name = "cmbKeywords";
+            cmbKeywords.Size = new System.Drawing.Size(142, 23);
+            cmbKeywords.TabIndex = 9;
+            // 
+            // btnRemoveKW
+            // 
+            btnRemoveKW.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnRemoveKW.Image = (System.Drawing.Image)resources.GetObject("btnRemoveKW.Image");
+            btnRemoveKW.Location = new System.Drawing.Point(831, 304);
+            btnRemoveKW.Name = "btnRemoveKW";
+            btnRemoveKW.Size = new System.Drawing.Size(29, 23);
+            btnRemoveKW.TabIndex = 10;
+            btnRemoveKW.UseVisualStyleBackColor = true;
+            btnRemoveKW.Click += btnRemoveKW_Click;
+            // 
+            // btnAddKW
+            // 
+            btnAddKW.Image = (System.Drawing.Image)resources.GetObject("btnAddKW.Image");
+            btnAddKW.Location = new System.Drawing.Point(796, 304);
+            btnAddKW.Name = "btnAddKW";
+            btnAddKW.Size = new System.Drawing.Size(29, 23);
+            btnAddKW.TabIndex = 10;
+            btnAddKW.UseVisualStyleBackColor = true;
+            btnAddKW.Click += btnAddKW_Click;
+            // 
+            // txtKeywords
+            // 
+            txtKeywords.BackColor = System.Drawing.SystemColors.ControlLight;
+            txtKeywords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtKeywords.Location = new System.Drawing.Point(410, 304);
+            txtKeywords.Name = "txtKeywords";
+            txtKeywords.ReadOnly = true;
+            txtKeywords.Size = new System.Drawing.Size(195, 23);
+            txtKeywords.TabIndex = 17;
+            // 
+            // btnAddKWtoList
+            // 
+            btnAddKWtoList.Image = (System.Drawing.Image)resources.GetObject("btnAddKWtoList.Image");
+            btnAddKWtoList.Location = new System.Drawing.Point(611, 304);
+            btnAddKWtoList.Name = "btnAddKWtoList";
+            btnAddKWtoList.Size = new System.Drawing.Size(31, 23);
+            btnAddKWtoList.TabIndex = 18;
+            btnAddKWtoList.UseVisualStyleBackColor = true;
+            btnAddKWtoList.Click += btnAddKWtoList_Click;
             // 
             // MainLib
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1219, 761);
+            ClientSize = new System.Drawing.Size(874, 761);
             Controls.Add(cmbShowKind);
             Controls.Add(label9);
+            Controls.Add(btnAddKWtoList);
             Controls.Add(btnAddFormatToList);
+            Controls.Add(txtKeywords);
             Controls.Add(txtListFormats);
             Controls.Add(btnFinishEdit);
             Controls.Add(btnSelectPict);
             Controls.Add(pictBox);
             Controls.Add(btnEdit);
             Controls.Add(txtDescription);
+            Controls.Add(btnAddKW);
             Controls.Add(cmbLang);
+            Controls.Add(btnRemoveKW);
             Controls.Add(btnAddFormat);
             Controls.Add(btnRemoveFormat);
             Controls.Add(btnRemoveGenre);
+            Controls.Add(cmbKeywords);
             Controls.Add(btnAddGenre);
             Controls.Add(cmbFormat);
             Controls.Add(cmbGenre);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(label7);
             Controls.Add(label4);
             Controls.Add(txtRating);
-            Controls.Add(txtSize);
             Controls.Add(txtDuration);
+            Controls.Add(label7);
             Controls.Add(txtSeries);
             Controls.Add(label3);
             Controls.Add(label8);
@@ -587,13 +633,16 @@ namespace LibraryCatalog
         private System.Windows.Forms.Button btnRemoveFormat;
         private System.Windows.Forms.TextBox txtListFormats;
         private System.Windows.Forms.Button btnAddFormatToList;
-        private System.Windows.Forms.ToolTip ttAddFormatToList;
-        private System.Windows.Forms.TextBox txtSize;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbShowKind;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbLang;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbKeywords;
+        private System.Windows.Forms.Button btnRemoveKW;
+        private System.Windows.Forms.Button btnAddKW;
+        private System.Windows.Forms.TextBox txtKeywords;
+        private System.Windows.Forms.Button btnAddKWtoList;
     }
 }
 

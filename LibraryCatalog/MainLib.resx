@@ -135,7 +135,7 @@
   <data name="pictBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVoAAAD3CAYAAABcpJzyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAFa5JREFUeF7t3c2rLMd5x/H7Nyj/RLwIcRZZmOyCtTQB3a2FEQJpIQkttNHmom12
+        vAAADrwBlbxySQAAFa5JREFUeF7t3c2rLMd5x/H7Nyj/RLwIcRZZmOyCtTQB3a2FEQJpIQkttNHmom12
         vkEgiRCsd10CySZxUOyFQPdIAm0EAWnlBC2yicFxIFYcOY59Us9k6rhOza+7q7vr6a7u/go+0tFMdb31
         9G9qambOufPll19eAwD8ELQA4IygBQBnBC0AOCNoAcAZQQsAzghaAHBG0AKAM4IWAJwRtADgjKAFAGcE
         LQA4I2gBwBlBCwDOCFoAcEbQAoAzghYAnBG0AOCMoAUO6Isvvrj+5JNPrj/66KPrTz/99Pqzzz47sdtV
@@ -351,9 +351,27 @@
         rySxgKqGQLnDHzAwAABb01PJhkZvlAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="ttAddFormatToList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="btnRemoveKW.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAB1JREFUOE9jGAXDBjgwOPwnB0O1DwYDRsGAAgYGAH9NPteF9Xy/AAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="btnAddKW.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAADhJREFUOE9jGLzAgcHhPwxDhUgDI80AZMXEYqhWCMCmgBCGaoUAbAoIYahW3IAk
+        xdjAqAHEAgYGAB0TZzwW8uiTAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnAddKWtoList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAADxJREFUOE9jGAWYwIHB4T8IQ7mkAZhmsgygmmZiMVQreZpBGKodArApIIShWhEA
+        rySxgKqGQLnDHzAwAABb01PJhkZvlAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

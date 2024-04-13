@@ -62,6 +62,8 @@ namespace LibraryCatalog
             GenresFactory fg = new GenresFactory();
             cmbGenre.DataSource = fg.Data;
 
+            KeywordsFactory kwf = new KeywordsFactory();
+            cmbKeywords.DataSource = kwf.Data;
 
         }
         protected void InitBooks()
@@ -83,11 +85,10 @@ namespace LibraryCatalog
                 txtSeries.Text = book.Series;
                 txtRating.Text = book.Rating;
                 txtListFormats.Text = book.Format;
-                txtSize.Text = book.Size;
                 cmbGenre.SelectedItem = book.Genre;
                 cmbLang.SelectedItem = book.Language;
                 string filename = string.Empty;
-
+                txtKeywords.Text = book.Keywords;
                 //#if DEBUG
                 //filename = Constants.GetDebugImgPath();
                 //#else
@@ -99,12 +100,15 @@ namespace LibraryCatalog
                     imgpath = $"{filename}{book.Image}";
 
                 }
-                Image img = Image.FromFile(imgpath);
-                int w = img.Width;
-                Bitmap b = new Bitmap(imgpath);
-                Utilities.FillPictureBox(pictBox, b);
+                if (File.Exists(imgpath))
+                {
+                    Image img = Image.FromFile(imgpath);
+                    int w = img.Width;
+                    Bitmap b = new Bitmap(imgpath);
+                    Utilities.FillPictureBox(pictBox, b);
 
-                //InitKeyWords(book.Keywords);
+                    //InitKeyWords(book.Keywords);
+                }
             }
         }
         private void btnAdd_Click(object sender, EventArgs e)
@@ -120,7 +124,6 @@ namespace LibraryCatalog
         protected void ClearBookInfo()
         {
             txtAuthor.Text = string.Empty;
-            txtSize.Text = string.Empty;
             txtDuration.Text = string.Empty;
             txtName.Text = string.Empty;
             txtSeries.Text = string.Empty;
@@ -135,17 +138,18 @@ namespace LibraryCatalog
         protected void ControlsReadonly(bool IsReadOnly)
         {
             txtAuthor.ReadOnly = IsReadOnly;
-            txtSize.ReadOnly = IsReadOnly;
             txtDuration.ReadOnly = IsReadOnly;
             txtName.ReadOnly = IsReadOnly;
             txtDescription.ReadOnly = IsReadOnly;
             txtRating.ReadOnly = IsReadOnly;
             txtSeries.ReadOnly = IsReadOnly;
             txtListFormats.ReadOnly = IsReadOnly;
+            txtKeywords.ReadOnly = IsReadOnly;
 
             cmbFormat.Enabled = !IsReadOnly;
             cmbGenre.Enabled = !IsReadOnly;
             cmbLang.Enabled = !IsReadOnly;
+            cmbKeywords.Enabled = !IsReadOnly;
             btnAddFormat.Enabled = !IsReadOnly;
             btnAddGenre.Enabled = !IsReadOnly;
             btnAddFormat.Enabled = !IsReadOnly;
@@ -155,19 +159,24 @@ namespace LibraryCatalog
             btnSelectPict.Visible = !IsReadOnly;
             btnEdit.Visible = IsReadOnly;
             btnFinishEdit.Visible = !IsReadOnly;
+            btnAddKW.Enabled = !IsReadOnly;
+            btnRemoveKW.Enabled = !IsReadOnly;
+            btnAddKWtoList.Enabled = !IsReadOnly;
 
             Color cr = IsReadOnly ? SystemColors.ControlLight : SystemColors.Control;
             txtAuthor.BackColor = cr;
-            txtSize.BackColor = cr;
             txtDuration.BackColor = cr;
             txtName.BackColor = cr;
             txtDescription.BackColor = cr;
             txtRating.BackColor = cr;
             txtSeries.BackColor = cr;
             txtListFormats.BackColor = cr;
+            txtKeywords.BackColor = cr;
             cmbFormat.BackColor = cr;
             cmbGenre.BackColor = cr;
             cmbLang.BackColor = cr;
+            cmbKeywords.BackColor = cr;
+
 
         }
         private void OnListSelectionChanged(object sender, EventArgs e)
@@ -219,12 +228,11 @@ namespace LibraryCatalog
             _book.Rating = txtRating.Text;
             _book.Series = txtSeries.Text;
             _book.Author = txtAuthor.Text;
-            _book.Size = txtSize.Text;
             _book.Description = txtDescription.Text;
             _book.Duration = txtDuration.Text;
             _book.Format = txtListFormats.Text;
             _book.Genre = cmbGenre.SelectedItem.ToString();
-
+            _book.Keywords = txtKeywords.Text;
             BooksFactory fact = new BooksFactory();
             List<BookModel> lst = fact.Data;
             if (lst != null && lst.Count == 1 && lst[0].Name == Constants.NoBooks)
@@ -478,6 +486,11 @@ namespace LibraryCatalog
                     {
                         lstBooks = lstBooks.Where(x => x.Name.Contains(dlg.BookName)).ToList();
                     }
+
+                    if (!string.IsNullOrEmpty(dlg.Keyword ) && lstBooks.Count > 0)
+                    {
+                        lstBooks = lstBooks.Where(x => x.Keywords.Contains(dlg.Keyword)).ToList();
+                    }
                     InitMainList(lstBooks);
                     IsSearch = false;
                     btnSearch.Text = "Return to Library";
@@ -524,6 +537,64 @@ namespace LibraryCatalog
         private void btnNewKW_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddKW_Click(object sender, EventArgs e)
+        {
+            dlgSomethingNew dlg = new dlgSomethingNew();
+            dlg.SetLabels("Keyword");
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string value = dlg.GetValue();
+                KeywordsFactory fact = new KeywordsFactory();
+                if (!fact.IsKWordExisting(value))
+                {
+                    fact.Data.Add(value);
+                    fact.SetData(fact.Data);
+                    cmbKeywords.DataSource = fact.Data;
+                    cmbKeywords.SelectedItem = value;
+                }
+            }
+        }
+
+        private void btnAddKWtoList_Click(object sender, EventArgs e)
+        {
+            string kw = cmbKeywords.SelectedItem.ToString();
+            if (!txtKeywords.Text.Contains(kw))
+            {
+                string coma = txtKeywords.Text.Length > 0 ? ", " : string.Empty;
+                txtKeywords.Text = $"{txtKeywords.Text}{coma}{kw}";
+            }
+        }
+
+        private void btnRemoveKW_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"The selected keyword will be deleted! Are you sure? ", "Delete keyword ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                string value = cmbKeywords.SelectedItem.ToString();
+                KeywordsFactory fact = new KeywordsFactory();
+                fact.Data.Remove(value);
+                fact.SetData(fact.Data);
+                cmbKeywords.DataSource = fact.Data;
+                RemoveValueFromTxtxBox(txtKeywords, value);
+            }
+        }
+        protected void RemoveValueFromTxtxBox(TextBox textBox, string value)
+        {
+            string txt = textBox.Text.Trim();
+            txt = txt.Replace(value,"").Trim();
+            txt = txt.Replace(",,", ",").Trim();
+            txt = txt.Replace(", ,", ",").Trim();
+            if (txt[txt.Length - 1] == ',')
+            {
+                txt = txt.Remove(txt.Length - 1);
+            }
+            if (txt[0] == ',')
+            {
+                txt = txt.Remove(0,2).Trim();
+            }
+            textBox.Text = txt;
         }
     }
 }

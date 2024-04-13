@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryCatalog.Models.Serializers
 {
-    internal class KWSerializer : XMLSerializerBase<List<Keyword>>
+    internal class KWSerializer : XMLSerializerBase<List<string>>
     {
         protected override void UpdateFile()
         {

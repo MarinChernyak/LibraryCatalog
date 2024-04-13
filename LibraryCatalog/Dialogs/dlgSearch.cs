@@ -17,7 +17,7 @@ namespace LibraryCatalog.Dialogs
         public string Format { get { return textFormat.Text; } }
         public string Series { get { return textSeries.Text; } }
         public string BookName { get { return textName.Text; } }
-
+        public string Keyword { get { return txtKeyword.Text; } }
 
         public dlgSearch()
         {

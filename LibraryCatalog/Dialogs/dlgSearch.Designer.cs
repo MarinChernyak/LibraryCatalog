@@ -30,147 +30,171 @@ namespace LibraryCatalog.Dialogs
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dlgSearch));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textAuthor = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textFormat = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textSeries = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            textName = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            textAuthor = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            textFormat = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            textSeries = new System.Windows.Forms.TextBox();
+            btnSearch = new System.Windows.Forms.Button();
+            btnCancel = new System.Windows.Forms.Button();
+            label6 = new System.Windows.Forms.Label();
+            txtKeyword = new System.Windows.Forms.TextBox();
+            lblKeyword = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Serarch by...";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(13, 13);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(74, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Serarch by...";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name of  book *";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(12, 42);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(94, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Name of  book *";
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(12, 60);
-            this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(270, 23);
-            this.textName.TabIndex = 2;
+            textName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textName.Location = new System.Drawing.Point(12, 60);
+            textName.Name = "textName";
+            textName.Size = new System.Drawing.Size(270, 23);
+            textName.TabIndex = 2;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 15);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Name of  author *";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(16, 95);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(102, 15);
+            label3.TabIndex = 1;
+            label3.Text = "Name of  author *";
             // 
             // textAuthor
             // 
-            this.textAuthor.Location = new System.Drawing.Point(12, 113);
-            this.textAuthor.Name = "textAuthor";
-            this.textAuthor.Size = new System.Drawing.Size(270, 23);
-            this.textAuthor.TabIndex = 2;
+            textAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textAuthor.Location = new System.Drawing.Point(12, 113);
+            textAuthor.Name = "textAuthor";
+            textAuthor.Size = new System.Drawing.Size(270, 23);
+            textAuthor.TabIndex = 2;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 15);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Format *";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(12, 148);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(53, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Format *";
             // 
             // textFormat
             // 
-            this.textFormat.Location = new System.Drawing.Point(12, 166);
-            this.textFormat.Name = "textFormat";
-            this.textFormat.Size = new System.Drawing.Size(270, 23);
-            this.textFormat.TabIndex = 2;
+            textFormat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textFormat.Location = new System.Drawing.Point(12, 166);
+            textFormat.Name = "textFormat";
+            textFormat.Size = new System.Drawing.Size(270, 23);
+            textFormat.TabIndex = 2;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 201);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 15);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Series *";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(12, 201);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(45, 15);
+            label5.TabIndex = 1;
+            label5.Text = "Series *";
             // 
             // textSeries
             // 
-            this.textSeries.Location = new System.Drawing.Point(12, 219);
-            this.textSeries.Name = "textSeries";
-            this.textSeries.Size = new System.Drawing.Size(270, 23);
-            this.textSeries.TabIndex = 2;
+            textSeries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textSeries.Location = new System.Drawing.Point(12, 219);
+            textSeries.Name = "textSeries";
+            textSeries.Size = new System.Drawing.Size(270, 23);
+            textSeries.TabIndex = 2;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(12, 286);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.OnSearch);
+            btnSearch.Location = new System.Drawing.Point(12, 323);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new System.Drawing.Size(75, 23);
+            btnSearch.TabIndex = 4;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += OnSearch;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(93, 286);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Location = new System.Drawing.Point(93, 323);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new System.Drawing.Size(75, 23);
+            btnCancel.TabIndex = 4;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.DarkRed;
-            this.label6.Location = new System.Drawing.Point(12, 258);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(267, 21);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "* - Enter  ful or a part of the  value";
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label6.ForeColor = System.Drawing.Color.DarkRed;
+            label6.Location = new System.Drawing.Point(12, 295);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(272, 21);
+            label6.TabIndex = 5;
+            label6.Text = "* - Enter  full or a part of the  value";
+            // 
+            // txtKeyword
+            // 
+            txtKeyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtKeyword.Location = new System.Drawing.Point(13, 269);
+            txtKeyword.Name = "txtKeyword";
+            txtKeyword.Size = new System.Drawing.Size(270, 23);
+            txtKeyword.TabIndex = 2;
+            // 
+            // lblKeyword
+            // 
+            lblKeyword.AutoSize = true;
+            lblKeyword.Location = new System.Drawing.Point(13, 251);
+            lblKeyword.Name = "lblKeyword";
+            lblKeyword.Size = new System.Drawing.Size(53, 15);
+            lblKeyword.TabIndex = 1;
+            lblKeyword.Text = "Keyword";
             // 
             // dlgSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 317);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textSeries);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textFormat);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textAuthor);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "dlgSearch";
-            this.Text = "Search book";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(299, 357);
+            Controls.Add(label6);
+            Controls.Add(btnCancel);
+            Controls.Add(btnSearch);
+            Controls.Add(txtKeyword);
+            Controls.Add(textSeries);
+            Controls.Add(lblKeyword);
+            Controls.Add(label5);
+            Controls.Add(textFormat);
+            Controls.Add(label4);
+            Controls.Add(textAuthor);
+            Controls.Add(label3);
+            Controls.Add(textName);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Name = "dlgSearch";
+            Text = "Search book";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -187,5 +211,7 @@ namespace LibraryCatalog.Dialogs
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.Label lblKeyword;
     }
 }
