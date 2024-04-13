@@ -590,7 +590,7 @@ namespace LibraryCatalog
             Controls.Add(lblSort);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "MainLib";
-            Text = "Библиотека Танюшечки Ивановой";
+            Text = "Библиотека Танюшечки Ивановой (v. 2.1)";
             ((System.ComponentModel.ISupportInitialize)pictBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
